@@ -23,7 +23,7 @@ function App() {
       setMessages([message, ...messages]);
     }
   }
-
+  
   useEffect(() => {
     ws.onopen = () => {
       try {
