@@ -27,7 +27,7 @@ function Sender(props) {
 
   return (
     <div>
-      <h2>{user.name}</h2>
+      <h2>{user.username}</h2>
 
       <textarea name="message_text" id="message_text" rows="10"></textarea>
 
