@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './styles.css';
 import React, { useContext, useState } from 'react';
 import { SocketContext } from '../Context/SocketContext';
