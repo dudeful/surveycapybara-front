@@ -4,6 +4,7 @@ import { UserContextProvider } from './components/Context/UserContext';
 import { SocketContextProvider } from './components/Context/SocketContext';
 import Pool from './components/Pool';
 import Login from './components/Login';
+import './App.css';
 
 function App() {
   return (
