@@ -45,7 +45,7 @@ function Pool(props) {
         } else {
           // when refreshing cookies, must reset username and email
           setUser({ username: token.decoded.username, email: token.decoded.email });
-          navigate('/pool');
+          navigate(`/pool/${pool_id}`);
         }
       } catch (error) {
         console.error('<<<ERROR WHILE REFRESHING TOKEN>>>');
