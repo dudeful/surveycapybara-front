@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext } from 'react';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
@@ -27,7 +28,7 @@ function Sender(props) {
 
   return (
     <div>
-      <h2>{user.name}</h2>
+      <h2>{user.username}</h2>
 
       <textarea name="message_text" id="message_text" rows="10"></textarea>
 

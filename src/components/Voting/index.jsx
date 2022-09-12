@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './styles.css';
 import React, { useContext, useState } from 'react';
 import { SocketContext } from '../Context/SocketContext';
@@ -36,7 +37,7 @@ function Voting(props) {
         return (
           <button
             key={option.id}
-            style={{ width: 10 * option.votes + 'px', maxWidth: '100px' }}
+            style={{ minWidth: 'fit-content', width: 50 * option.votes + 'px' }}
             id={option.id}
             onClick={castVote}
           >
