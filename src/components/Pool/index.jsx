@@ -53,7 +53,7 @@ function Pool(props) {
       }
     };
 
-    // isTokenFresh();
+    isTokenFresh();
     fetchPool();
   }, []);
 
