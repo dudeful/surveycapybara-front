@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/pool"
+            path="/pool/:pool_id"
             element={
               <SocketContextProvider>
                 <Pool />

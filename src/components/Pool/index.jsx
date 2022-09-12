@@ -1,16 +1,18 @@
 /* eslint-disable */
 import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
 import Voting from '../Voting';
 import Chat from '../Chat';
-import { useNavigate } from 'react-router-dom';
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
-const pool_id = 'ea78cc88';
 
 function Pool(props) {
+  // ea78cc88
+  // 5b770395
+  const { pool_id } = useParams();
   const socket = useContext(SocketContext);
   const [pool, setPool] = useState();
   const [messages, setMessages] = useState([]);
@@ -21,7 +23,7 @@ function Pool(props) {
   useEffect(() => {
     const fetchPool = async () => {
       try {
-        const response = await fetch(`${API_URL}/pools?id=${pool_id}`);
+        const response = await fetch(`${API_URL}/pools?id=${pool_id}`, { credentials: 'include' });
         const data = await response.json();
 
         console.log(data);
@@ -51,7 +53,7 @@ function Pool(props) {
       }
     };
 
-    isTokenFresh();
+    // isTokenFresh();
     fetchPool();
   }, []);
 

@@ -1,12 +1,13 @@
 /* eslint-disable */
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
 
 function Login(props) {
+  const { pool_id } = useParams();
   const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -31,7 +32,8 @@ function Login(props) {
 
     if (data.isAuthenticated) {
       setUser(data.user);
-      navigate('/pool');
+      // navigate(`/pool/${pool_id}`);
+      navigate(-1);
     }
   };
 
