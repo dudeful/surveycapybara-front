@@ -3,7 +3,7 @@ import React from 'react';
 function Navigation (props){
     return (
         <>
-            <a className='navigation' href="#">{props.name}</a>
+            <a className='navigation' href={"/pool/" + props.href}>{props.name}</a>
         </>
     );
 }

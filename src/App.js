@@ -24,10 +24,12 @@ function App() {
           <Route 
           path="/create-pool"
           element={
-            <div className="page">
-              <SideBar itens={[{name:"teste", code:"res3wsa1"}]} />
-              <CreatePool />
-            </div>
+            <>
+              <div className="page">
+                <SideBar itens={[{name:"teste", code:"ea78cc88"}]} />
+                <CreatePool />
+              </div>
+            </>
           } />
           <Route path="/login" element={<Login />} />
           
