@@ -38,8 +38,9 @@ function Login(props) {
 
     if (data.isAuthenticated) {
       setUser(data.user);
-      // navigate(`/pool/${pool_id}`);
-      navigate(-1);
+      //navigate(`/pool/${pool_id}`);
+      navigate(`/pool/${'ea78cc88'}`);
+      //navigate(-1);
     }
   };
 

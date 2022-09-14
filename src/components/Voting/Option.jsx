@@ -10,7 +10,8 @@ function Option (props){
                 onClick={props.function} 
             > {props.name}</button>
             <button
-            >option.votes</button>
+                className='option-votes'
+            >{props.votes}</button>
         </div>
     )
 }

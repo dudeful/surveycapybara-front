@@ -32,9 +32,6 @@ function CreatePool(props){
             event.target.value = arr.length-1;
         }
     }
-    const handleButtonPublishe = (event) => {
-        event.preventDefault();
-    }
     return (
     <div className="create-pool">
         <h3 className='asap'>Crie Sua Pesquisa</h3>
@@ -64,7 +61,6 @@ function CreatePool(props){
             })}
             <div className='divButtons'>
                 <button className="bnt-forms asap" onClick={handleButton}>Adicionar Opção</button>
-                <button className="bnt-forms asap" onClick={handleButtonPublishe}>Criar e abrir</button>
                 <input className="bnt-forms asap" type="submit" value={"Criar"} />
             </div>
         </form>
