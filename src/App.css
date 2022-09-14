@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap');
+
 body {
   font-size: 62.5%;
+  font-family: 'Asap', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  background-color: aqua;
+  background-color: #d1d1d1;
 }
 
 #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aquamarine;
+  background-color: #d1d1d1;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -43,10 +46,15 @@ img {
   width: 5rem;
 }
 
+h3{
+  font-size: 5em;
+}
+
 .input-btn-register, .input-btn-login {
   padding: 0;
   display: flex;
   border:none;
+  font-family: 'Asap', sans-serif;
   font-size: 0.9rem;
   font-weight: bold;
   background-color: #dadbcd00;
@@ -54,7 +62,7 @@ img {
 }
 
 
-.box-login-modal {
+.box-login-modal, .box-modal{
   display: flex;
   align-items: center;
   justify-content:space-around;
@@ -66,7 +74,7 @@ img {
   border-radius: 10px;
 }
 
-.box-modal-login, .box-modal-register {
+.box-modal-login, .box-modal-register, .box-modal {
   display: flex;
   align-items: center;
   width: 45%;
@@ -85,7 +93,7 @@ img {
   background:linear-gradient(225deg,#a1a8167e,#F1EFE5) ;
 }
 
-.input-box-email, .input-box-password {
+.input-box-email, .input-box-password, .input-form-box{
   display: flex;
   align-items: center;
   
@@ -93,31 +101,47 @@ img {
   width: 100%;
 }
 
-.input-email, .input-password {
+.input-email, .input-password, .input-form {
   display: flex;
   font-size: 1.2rem;
+  font-family: 'Asap', sans-serif;
   border: none;
   width: 70%;
   border-bottom: solid 2px ;
 }
 
-.btn-login  {
+.input-form{
+  background-color: #f1f1f1;
+  display: flex;
+  font-size: 1.2rem;
+  font-family: 'Asap', sans-serif;
+  border: none;
+  width: 70%;
+  border: solid 2px ;
+  border-radius: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 15%;
+}
+
+.btn-login, .bnt-forms  {
   display: flex;
   align-items: center;
   justify-content: center;
-  background:linear-gradient(90deg, #DADBCD,#A0A816) ;
+  background:linear-gradient(135deg, #DADBCD,#5B28BF) ;
   padding: 0.4rem 1.6rem;
   border: none;
   cursor: pointer;
   margin: 2rem;
-  color: #5C442A;
+  color: #080808;
   border-radius: 10px;
   transition: all 1.2s ease;
+  font-family: 'Asap', sans-serif;
 }
 
-.btn-login:hover {
+.btn-login:hover, .bnt-forms:hover {
   transition: all 1.2s ease;
-  background: linear-gradient(90deg,#A0A816, #DADBCD);
+  background: linear-gradient(135deg, #5B28BF, #DADBCD);
   color:#DADBCD ;
   
 }
@@ -125,4 +149,84 @@ img {
 textarea:focus, input:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
+}
+
+.asap { font-family: 'Asap', sans-serif; }
+
+.boxOption{
+  display: flex;
+}
+
+.option{
+  width: 60%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+}
+
+.divButtons{
+  display: flex;
+  justify-content: space-around;
+  padding-left: 3em;
+}
+
+.side-bar{
+  display: flex;
+  flex-flow: column;
+  background-color: #424040;
+  width: 20%;
+  padding-top: 2.5%;
+  padding-left: 1%;
+}
+
+.navigation{
+  border-radius: 50px 0px 0px 50px;
+  background-color: #7c7373;
+  color: #d1d1d1;
+  font-size: 2em;
+  padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  text-decoration: none;
+}
+
+.navigation-create{
+  border-radius: 50px 50px 50px 50px;
+  background-color: #080808;
+  color: #f1f1f1;
+  font-size: 2em;
+  padding-left: 2.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 2.5em;
+  margin-right: auto;
+  margin-left: auto;
+  text-decoration: none;
+}
+
+.page{
+  display:flex;
+  width: 100%;
+  height: 100%;
+}
+
+.create-pool{
+  display:flex;
+  flex-direction: column;
+  margin-left: 15%;
+}
+
+.label-input{
+  font-family: 'Asap', sans-serif;
+  font-size: 2em;
+  padding-left: 2em;
+}
+
+.input-form-small{
+  max-width: 2em;
+  justify-self: flex-end;
+}
+
+.input-form-box-label{
+  justify-content: space-around;
 }

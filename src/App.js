@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { UserContextProvider } from './components/Context/UserContext';
 import { SocketContextProvider } from './components/Context/SocketContext';
+import CreatePool from "./components/CreatePool/";
+import SideBar from "./components/SideBar"
 import Pool from './components/Pool';
 import Login from './components/Login';
 import './App.css';
@@ -19,8 +21,16 @@ function App() {
               </SocketContextProvider>
             }
           />
+          <Route 
+          path="/create-pool"
+          element={
+            <div className="page">
+              <SideBar itens={[{name:"teste", code:"res3wsa1"}]} />
+              <CreatePool />
+            </div>
+          } />
           <Route path="/login" element={<Login />} />
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          
         </Routes>
       </BrowserRouter>
     </UserContextProvider>
