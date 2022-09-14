@@ -4,7 +4,7 @@ import Sender from './Sender.jsx';
 
 function Chat(props) {
   return (
-    <div id="chat">
+    <div id="chat" className="chat-imporvise">
       <div id="all_messages">
         {props.messages.map((message) => {
           return <Message key={message.id} message={message} />;

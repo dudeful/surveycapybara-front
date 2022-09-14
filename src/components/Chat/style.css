@@ -1,0 +1,58 @@
+/*@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&display=swap%27');*/
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap');
+
+*{
+  box-sizing: border-box;
+  font-family: 'Asap', sans-serif;
+}
+
+body{
+  padding: 0;
+  background-color: #383838;
+}
+
+#chat_container{
+  font-size: 2em;
+  color: #080808;
+  width: 70%;
+  margin: 10vh auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#chat_container textarea{
+  font-size: 18px;
+  color: #080808;
+  background-color: #f1f1f1;
+  height: 25vh;
+  margin-top: 6px;
+}
+
+#message_text{
+  margin-top: 5px;
+}
+
+#send_message{
+  font-weight: 600;
+  color: #39ff14;
+  background-color: #383838;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  height: 32px;
+  font-size: 16px;
+}
+
+#send_message:hover{
+  color: #383838;
+  background-color: #39ff14;
+}
+
+@media (max-width: 600px) {
+  #chat_container{
+    width: 90%;
+  }
+  #chat_container textarea{
+    font-size: 20px;
+    height: 15vh;
+  }
+}

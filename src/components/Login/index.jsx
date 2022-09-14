@@ -85,7 +85,7 @@ function Login(props) {
           </div>
 
           <button type="button" className="btn-login" id="login_button" onClick={loginHandler}>
-            <h2>LOGIN</h2>
+            <h3>LOGIN</h3>
             <img src={IconLogin} alt="" />
           </button>
         </fieldset>

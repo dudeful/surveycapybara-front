@@ -5,6 +5,7 @@ import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
 import Voting from '../Voting';
 import Chat from '../Chat';
+import SideBar from '../SideBar'
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
@@ -90,10 +91,11 @@ function Pool(props) {
   }, [socket.onmessage]);
 
   return (
-    <>
+    <div className='main-page'>
+      <SideBar itens={[{name:"teste", code:"ea78cc88"}]} />
       <Voting options={options} />
       <Chat messages={messages} />
-    </>
+    </div>
   );
 }
 

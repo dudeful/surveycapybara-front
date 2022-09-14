@@ -34,7 +34,7 @@ function CreatePool(props){
     }
     return (
     <div className="create-pool">
-        <h3 className='asap'>Crie Sua Pesquisa</h3>
+        <h2 className='asap'>Crie Sua Pesquisa</h2>
         <form id="create-pool box-modal" onSubmit={handleSubmit} >
             <div className='input-form-box'>
                 <input type="text" className={"input-form"} placeholder="Titulo da Pesquisa" />

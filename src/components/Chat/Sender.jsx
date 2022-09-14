@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
+import "./style.css"
 
 function Sender(props) {
   const socket = useContext(SocketContext);
@@ -27,8 +28,8 @@ function Sender(props) {
   };
 
   return (
-    <div>
-      <h2>{user.username}</h2>
+    <div id="chat_container">
+      <h3>{user.username}</h3>
 
       <textarea name="message_text" id="message_text" rows="10"></textarea>
 

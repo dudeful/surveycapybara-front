@@ -3,6 +3,7 @@ import './styles.css';
 import React, { useContext, useState } from 'react';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
+import { Option } from './Option';
 
 function Voting(props) {
   const socket = useContext(SocketContext);
@@ -32,20 +33,18 @@ function Voting(props) {
   if (!props.options.list) return <div>loading...</div>;
 
   return (
-    <div id="voting">
+    <div id="voting" className='voting'>
       {props.options.list.map((option) => {
         return (
-          <button
-            key={option.id}
-            style={{ minWidth: 'fit-content', width: 50 * option.votes + 'px' }}
+          <Option
+            name={option.id}
             id={option.id}
-            onClick={castVote}
-          >
-            {option.name} | {option.votes}
-          </button>
+            function={castVote} 
+            votes={option.votes}
+            />
         );
       })}
-      <input value={props.options.total_votes} disabled={true} />
+      <input className="total-votes" value={props.options.total_votes} disabled={true} />
     </div>
   );
 }
