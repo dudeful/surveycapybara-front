@@ -6,6 +6,7 @@ import CreatePool from "./components/CreatePool/";
 import SideBar from "./components/SideBar"
 import Pool from './components/Pool';
 import Login from './components/Login';
+import EnterCode from './components/EnterCode';
 import './App.css';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             </>
           } />
           <Route path="/login" element={<Login />} />
+          <Route path="/code" element={<EnterCode />} />
           
         </Routes>
       </BrowserRouter>

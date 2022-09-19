@@ -47,8 +47,8 @@ function Login(props) {
   return (
     <>
       <Header> </Header>
-      <form id="login">
-        <fieldset>
+      <form id="login" className='box-form-login'>
+        <fieldset className='box-fieldset-login'>
           <legend className="box-login-modal">
             <div className="box-modal-login">
               <img src={IconProfile} alt="" />
@@ -90,14 +90,6 @@ function Login(props) {
           </button>
         </fieldset>
       </form>
-      {/* <div id="login">
-
-        <input placeholder="email" type="email" id="login_email" />
-        <input placeholder="password" type="password" id="login_password" />
-        <button id="login_button" onClick={loginHandler}>
-          login
-        </button>
-      </div> */}
     </>
   );
 }
