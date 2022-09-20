@@ -92,7 +92,7 @@ function Pool(props) {
 
   return (
     <div className='main-page'>
-      <SideBar itens={[{name:"teste", code:"ea78cc88"}]} />
+      <SideBar itens={[{name:"teste", id:"ea78cc88"}]} />
       <Voting options={options} />
       <Chat messages={messages} />
     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Navigation} from './Navigation'
 
 function SideBar (props){
+    console.log(props.itens)
     return (
         <div className='side-bar'>
             {props.itens.map((item, i) => {

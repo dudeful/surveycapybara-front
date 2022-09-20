@@ -273,8 +273,9 @@ textarea:focus, input:focus {
 }
 
 .voting{
-  padding-top: 15%;
+  padding-top: 10%;
   width: 70%;
+  height: fit-content;
 }
 
 .chat-imporvise{
