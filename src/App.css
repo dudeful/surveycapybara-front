@@ -30,7 +30,7 @@ header {
   margin-bottom: 5rem;
 }
 
-fieldset {
+.box-fieldset-login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,6 +50,49 @@ h2{
   font-size: 5em;
 }
 
+.box-fieldset-code {
+  background-color: #ffff;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.input-code-enter {
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: solid 2px #424040;
+  margin-bottom: 1rem;
+}
+.input-code-password {
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: solid 2px #424040;
+  margin-bottom: 1rem;
+}
+
+.input-code-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(135deg, #DADBCD,#5B28BF) ;
+  padding: 0.4rem 1.6rem;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem 2rem;
+  color: #424040;
+  border-radius: 10px;
+  transition: all 1.2s ease;
+  font-family: 'Asap', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
 .input-btn-register, .input-btn-login {
   padding: 0;
   display: flex;
@@ -59,6 +102,7 @@ h2{
   font-weight: bold;
   background-color: #dadbcd00;
   color: #5C442A;
+  
 }
 
 
