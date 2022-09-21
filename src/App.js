@@ -7,6 +7,7 @@ import Pool from './components/Pool';
 import Login from './components/Login';
 import EnterCode from './components/EnterCode';
 import './App.css';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <PoolForms />
           } />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/code" element={<EnterCode />} />
           
         </Routes>
