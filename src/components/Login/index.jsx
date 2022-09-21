@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useContext } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import Header from '../Header/Header';
@@ -9,10 +10,18 @@ import IconEmail from '../../img/icon_email.png';
 import IconPassword from '../../img/icon_password.png';
 import IconLogin from '../../img/icon_login.png';
 
+import './style.css';
+
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
 
 function Login(props) {
+
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const [status, setStatus] = useState(false)
+
+
   const { pool_id } = useParams();
   const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
@@ -20,8 +29,7 @@ function Login(props) {
   const loginHandler = async () => {
     // const email = document.getElementById('login_email').value;
     // const password = document.getElementById('login_password').value;
-    const email = 'dudeful@outlook.com';
-    const password = 'EdTech123!';
+    
     const user = { email, password };
 
     const options = {
@@ -44,6 +52,21 @@ function Login(props) {
     }
   };
 
+  const handleStatus = (e) => {
+    setStatus(true)
+    navigate(`/register`);
+  }
+ 
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+   
+  }
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    
+  }
+
   return (
     <>
       <Header> </Header>
@@ -55,7 +78,7 @@ function Login(props) {
               <input className="input-btn-login" type="button" value="LOGIN" />
             </div>
 
-            <div className="box-modal-register">
+            <div className="box-modal-register" value = {status} onClick={handleStatus}>
               <img src={IconProfilePlus} alt="" />
               <input className="input-btn-register" type="button" value="REGISTER" />
             </div>
@@ -67,6 +90,8 @@ function Login(props) {
               placeholder="Your  email"
               type="email"
               id="login_email"
+              value={email}
+              onChange={handleEmail}
             />
           </div>
           <div className="input-box-password">
@@ -76,6 +101,8 @@ function Login(props) {
               placeholder="Your password"
               type="password"
               id="login_password"
+              value={password}
+              onChange={handlePassword}
             />
           </div>
           <div>
