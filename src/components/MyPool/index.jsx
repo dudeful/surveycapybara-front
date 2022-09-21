@@ -1,9 +1,6 @@
 /* eslint-disable */
 import './styles.css';
 import React, { useContext, useState } from 'react';
-import { SocketContext } from '../Context/SocketContext';
-import { UserContext } from '../Context/UserContext';
-import { Option } from '../Voting/Option';
 
 function MyPool(props) {
 
