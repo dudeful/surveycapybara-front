@@ -1,0 +1,75 @@
+.box-modal {
+    display: flex;
+    align-items: center;
+    width: 45%;
+    height: 3.5rem;
+    background-color: #F1EFE5;
+    border-radius: 10px;
+}
+
+.box-modal{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    border: solid black 2px;
+    width: 98%;
+    height: 5rem;
+    background-color: #F1EFE5;
+    margin-bottom: 4.5rem;
+    border-radius: 10px;
+}
+
+.create-pool{
+    display:flex;
+    flex-direction: column;
+    margin-left: 15%;
+}
+
+.input-form-box{
+    display: flex;
+    align-items: center;
+    
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.input-form-box-label{
+    align-items: space-around;
+    padding-left: 2vw;
+}
+
+.bnt-forms  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(135deg, #DADBCD,#5B28BF) ;
+    padding: 0.4rem 1.6rem;
+    border: none;
+    cursor: pointer;
+    margin: 2rem;
+    color: #080808;
+    border-radius: 10px;
+    transition: all 1.2s ease;
+    font-family: 'Asap', sans-serif;
+}
+
+.bnt-forms:hover {
+    transition: all 1.2s ease;
+    background: linear-gradient(135deg, #5B28BF, #DADBCD);
+    color:#DADBCD ;
+    
+}
+
+.box-fieldset-create-pool {
+    background-color: #ffff;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px black;
+    padding: 3em;
+    margin-top: 5vh;
+  }

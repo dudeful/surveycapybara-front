@@ -3,9 +3,8 @@ import React from 'react';
 function Message(props) {
   const { message } = props;
   return (
-    <div id="message" className='messeges'>
-      <h3>{message.user.username}</h3>
-      <p>{message.body}</p>
+    <div className='messeges'>
+      <p><span className="user">{message.user.username}:</span> {message.body}</p>
     </div>
   );
 }

@@ -1,4 +1,96 @@
-#voting{
+h2{
+  text-align: center;
+  font-family: 'Asap', sans-serif;
+}
+
+.voting{
   display: flex;
   flex-direction: column;
+  width: 70%;
+  max-height: 95vh;
+  max-width: 60vw;
+  overflow-y: scroll;
+}
+
+.voting::-webkit-scrollbar{
+  width: auto;
+  height: auto;
+}
+
+.voting::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+.voting::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background-color: darkgrey;
+  outline: 2px solid slategrey;
+}
+
+.option{
+  border-right: solid #000000;
+}
+
+.qntvotes{
+  border-left: solid #000000;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.option{
+  background-color: #5B28BF;
+  border: #080808 solid 2px;
+  border-radius: 10px 0px 0px 10px;
+  font-family: 'Asap', sans-serif;
+  font-size: 2em;
+  color: #f1f1f1;
+  width: 50%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  margin-right: 0%;
+  padding-left: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.boxOption{
+  display: flex;
+}
+
+.option:disabled{
+  background-color: #8b58f0;
+}
+
+.qntvotes{
+  background-color: #5B28BF;
+  border: #080808 solid 2px;
+  border-radius: 0px 10px 10px 0px;
+  font-family: 'Asap', sans-serif;
+  font-size: 2em;
+  color: #f1f1f1;
+  margin-left: 0%;
+  padding-left: 1em;
+  text-align: center;
+  width: 15%;
+}
+
+.label-votes{
+  font-family: 'Asap', sans-serif;
+  font-size: 2em;
+  padding-left: 2em;
+}
+
+.total-votes{
+  border: #080808 solid 2px;
+  border-radius: 10px 10px 10px 10px;
+  width: 10%;
+  font-family: 'Asap', sans-serif;
+  font-size: 2em;
+  align-self: center;
+  padding: 0.5em;
+  margin-left: 1em;
+}
+
+.votes-display{
+  left: 0;
 }

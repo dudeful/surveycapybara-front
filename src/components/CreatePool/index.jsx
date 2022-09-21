@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./styles.css"
 
 function CreatePool(props){
     const inputArr = [{
@@ -34,36 +35,38 @@ function CreatePool(props){
     }
     return (
     <div className="create-pool">
-        <h2 className='asap'>Crie Sua Pesquisa</h2>
-        <form id="create-pool box-modal" onSubmit={handleSubmit} >
-            <div className='input-form-box'>
-                <input type="text" className={"input-form"} placeholder="Titulo da Pesquisa" />
-            </div>
-            <div className='input-form-box input-form-box-label'>
-                <label className='label-input' htmlFor="numVotes">
-                    N° de votos:
-                </label>
-                <input name="numVotes" type="number" className={"input-form input-form-small"} onChange={handleNumber} defaultValue={1} />
-            </div>
-            {arr.map((item, i) => {
-                return (
-                    <div className='input-form-box'>
-                        <input
-                            defaultValue={item.value}
-                            id={"option-"+i}
-                            type={"text"}
-                            key={i}
-                            className={"input-form"}
-                            placeholder={"Preencher opção"}
-                        />
-                    </div>
-                    );
-            })}
-            <div className='divButtons'>
-                <button className="bnt-forms asap" onClick={handleButton}>Adicionar Opção</button>
-                <input className="bnt-forms asap" type="submit" value={"Criar"} />
-            </div>
-        </form>
+        <fieldset className='box-fieldset-create-pool'>
+            <h2 className='asap'>Crie Sua Pesquisa</h2>
+            <form id="create-pool box-modal" onSubmit={handleSubmit} >
+                <div className='input-form-box'>
+                    <input type="text" className={"input-form"} placeholder="Titulo da Pesquisa" />
+                </div>
+                <div className='input-form-box input-form-box-label'>
+                    <label className='label-input' htmlFor="numVotes">
+                        N° de votos:
+                    </label>
+                    <input name="numVotes" type="number" className={"input-form input-form-small"} onChange={handleNumber} defaultValue={1} />
+                </div>
+                {arr.map((item, i) => {
+                    return (
+                        <div className='input-form-box'>
+                            <input
+                                defaultValue={item.value}
+                                id={"option-"+i}
+                                type={"text"}
+                                key={i}
+                                className={"input-form"}
+                                placeholder={"Preencher opção"}
+                            />
+                        </div>
+                        );
+                })}
+                <div className='divButtons'>
+                    <button className="bnt-forms asap" onClick={handleButton}><strong>Adicionar Opção</strong></button>
+                    <input className="bnt-forms asap" type="submit" value={"Criar"} />
+                </div>
+            </form>
+        </fieldset>
     </div>
     );
 }

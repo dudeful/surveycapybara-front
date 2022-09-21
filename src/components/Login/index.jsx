@@ -9,8 +9,7 @@ import IconProfilePlus from '../../img/icon_profile_plus.png';
 import IconEmail from '../../img/icon_email.png';
 import IconPassword from '../../img/icon_password.png';
 import IconLogin from '../../img/icon_login.png';
-
-import './style.css';
+import "./styles.css"
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
@@ -47,7 +46,7 @@ function Login(props) {
     if (data.isAuthenticated) {
       setUser(data.user);
       //navigate(`/pool/${pool_id}`);
-      navigate(`/pool/${'ea78cc88'}`);
+      navigate(`/code`);
       //navigate(-1);
     }
   };

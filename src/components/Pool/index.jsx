@@ -6,6 +6,9 @@ import { UserContext } from '../Context/UserContext';
 import Voting from '../Voting';
 import Chat from '../Chat';
 import SideBar from '../SideBar'
+import Header from '../Header/Header';
+import MyPool from '../MyPool'
+import "./styles.css";
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
@@ -90,12 +93,23 @@ function Pool(props) {
     };
   }, [socket.onmessage]);
 
+  const renderingPage = (owner) => {
+    if (owner){
+      return (<MyPool options={options} />);
+    }else{
+      return (<Voting options={options} />);
+    }
+  }
+
   return (
-    <div className='main-page'>
-      <SideBar itens={[{name:"teste", code:"ea78cc88"}]} />
-      <Voting options={options} />
-      <Chat messages={messages} />
-    </div>
+    <>
+      <Header> </Header>
+      <div className='main-page'>
+        <SideBar itens={[{name:"teste", id:"ea78cc88"}]} />
+        {renderingPage(false)}
+        <Chat messages={messages} />
+      </div>
+    </>
   );
 }
 
