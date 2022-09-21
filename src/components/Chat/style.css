@@ -8,9 +8,9 @@
 .messageContainer{
   max-height: 70vh;
   max-width: 25vw;
-  margin-top: 10xh;
+  margin-top: 10vh;
   overflow-y: scroll;
-  margin-right: 5%;
+  margin-left: 5%;
 }
 
 .messageContainer::-webkit-scrollbar{
@@ -32,6 +32,7 @@
   display: flex;
   flex-flow: column;
   background: #454545;
+  min-width: 25vw;
 }
 
 .user{
@@ -62,7 +63,7 @@
   margin-right: 2.5vw;
   display: flex;
   flex-direction: column;
-  align-self: flex-end;
+  align-self:flex-end;
 }
 
 .message_text{
