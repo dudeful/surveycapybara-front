@@ -8,6 +8,7 @@
   border-radius: 5px;
   border: none;
   box-shadow: 5px 5px 5px black;
+  margin-top: 5em;
 }
 
 .box-modal-r-register {
@@ -17,6 +18,7 @@
   height: 3.5rem;
   background-color: #F1EFE5;
   border-radius: 10px;
+  
 }
 
 .box-modal-l-login {
