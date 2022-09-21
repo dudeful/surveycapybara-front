@@ -1,0 +1,64 @@
+.box-fieldset-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 27rem;
+  height: 36rem;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 5px black;
+}
+
+.box-modal-r-register {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  height: 3.5rem;
+  background-color: #F1EFE5;
+  border-radius: 10px;
+}
+
+.box-modal-l-login {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  height: 3.5rem;
+  background-color: #F1EFE5;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.box-modal {
+  display: flex;
+  width: 99%;
+  height: 5rem;
+  background-color: #DADBCD;
+  margin-bottom: 4.5rem;
+  border-radius: 10px;
+}
+
+.box-modal-l-login {
+  background-color: #DADBCD;
+}
+
+.box-modal-l-login:hover {
+  background: linear-gradient(225deg, #a1a8167e, #F1EFE5);
+}
+
+.btn-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #DADBCD, #5B28BF);
+  padding: 0.4rem 1.6rem;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem 2rem;
+  color: #424040;
+  border-radius: 10px;
+  transition: all 1.2s ease;
+  font-family: 'Asap', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
