@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navigation} from './Navigation'
+import "./styles.css";
 
 function SideBar (props){
     console.log(props.itens)

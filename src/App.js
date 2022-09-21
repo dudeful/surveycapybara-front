@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { UserContextProvider } from './components/Context/UserContext';
 import { SocketContextProvider } from './components/Context/SocketContext';
-import CreatePool from "./components/CreatePool/";
-import SideBar from "./components/SideBar"
+import PoolForms from "./components/PoolForms/";
 import Pool from './components/Pool';
 import Login from './components/Login';
 import EnterCode from './components/EnterCode';
@@ -25,12 +24,7 @@ function App() {
           <Route 
           path="/create-pool"
           element={
-            <>
-              <div className="page">
-                <SideBar itens={[{name:"teste", code:"ea78cc88"}]} />
-                <CreatePool />
-              </div>
-            </>
+            <PoolForms />
           } />
           <Route path="/login" element={<Login />} />
           <Route path="/code" element={<EnterCode />} />

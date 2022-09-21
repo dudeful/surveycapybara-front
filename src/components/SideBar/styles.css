@@ -1,0 +1,35 @@
+.side-bar{
+    display: flex;
+    flex-flow: column;
+    background-color: #454545;
+    width: 18%;
+    padding-left: 1%;
+    padding-top: 5vh;
+    max-height: 95vh;
+}
+
+.navigation{
+    border-radius: 50px 0px 0px 50px;
+    background-color: #7c7373;
+    color: #d1d1d1;
+    font-size: 2em;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    text-decoration: none;
+}
+
+.navigation-create{
+    border-radius: 50px 50px 50px 50px;
+    background-color: #080808;
+    color: #f1f1f1;
+    font-size: 2em;
+    padding-left: 2.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 2.5em;
+    margin-right: auto;
+    margin-left: auto;
+    text-decoration: none;
+}

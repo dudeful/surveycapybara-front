@@ -14,7 +14,6 @@ function Voting(props) {
     try {
       if (count < 3) {
         setCount(count + 1);
-
         const data = {
           user,
           code: 1,
@@ -33,19 +32,27 @@ function Voting(props) {
   if (!props.options.list) return <div>loading...</div>;
 
   return (
-    <div id="voting" className='voting'>
-      {props.options.list.map((option) => {
-        return (
-          <Option
-            name={option.id}
-            id={option.id}
-            function={castVote} 
-            votes={option.votes}
-            />
-        );
-      })}
-      <input className="total-votes" value={props.options.total_votes} disabled={true} />
-    </div>
+    <>
+      <div className='voting'>
+        <h2>Test</h2>
+        {props.options.list.map((option) => {
+          return (
+            <Option
+              name={option.id}
+              id={option.id}
+              function={castVote} 
+              votes={option.votes}
+              />
+          );
+        })}
+        <div className="votes-display">
+          <label className='label-votes' htmlFor="allVotes">
+            N° de votos:
+          </label>
+          <input id='allVotes' className="total-votes" value={props.options.total_votes} disabled={true} />
+        </div>
+      </div>
+    </>
   );
 }
 

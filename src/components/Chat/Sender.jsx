@@ -25,16 +25,17 @@ function Sender(props) {
       console.error('<<<ERROR WHILE SENDING MESSAGE>>>');
       console.error(error);
     }
+    message_text.value = "";
   };
 
   return (
-    <div id="chat_container">
-      <h3>{user.username}</h3>
+    <div className="chat_container">
+      <strong className="user">{user.username}</strong>
 
-      <textarea name="message_text" id="message_text" rows="10"></textarea>
+      <input id="message_text" className="message_text" rows="10" />
 
-      <button id="sender_button" onClick={sendMessage}>
-        Send
+      <button className="sender-btn" onClick={sendMessage}>
+        <strong>Enviar</strong>
       </button>
     </div>
   );

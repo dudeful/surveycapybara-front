@@ -8,7 +8,7 @@ function Option (props){
                 className={"option"}
                 id={props.id}
                 onClick={props.function} 
-            > {props.name} | {props.votes}</button>
+            > {props.name}</button><button className='qntvotes'> <strong>{props.votes}</strong></button>
         </div>
     )
 }
