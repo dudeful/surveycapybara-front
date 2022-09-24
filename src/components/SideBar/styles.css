@@ -10,7 +10,19 @@
     height: 95vh;
     max-height: 95vh;
     position: fixed;
+    overflow-y: auto;
 }
+
+.side-bar::-webkit-scrollbar {
+    width: 1em;
+}
+   
+.side-bar::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-color: darkgrey;
+    outline: 2px solid slategrey;
+}
+  
 
 .navigation{
     border-radius: 50px 0px 0px 50px;
