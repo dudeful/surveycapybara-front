@@ -55,13 +55,16 @@ function CreatePool(props){
             return;
         }
 
-        fetch('https://server-surveycapybara.dudeful.com/pools/new', {
-            method: 'POST',
-            headers: {"content-type": "application/json"},
-            body: JSON.stringify({pool})
-        });
-
-        navigate(`/code`);
+        try{
+            fetch('https://server-surveycapybara.dudeful.com/pools/new', {
+                method: 'POST',
+                headers: {"content-type": "application/json"},
+                body: JSON.stringify({pool})
+            });
+        }catch(error){
+            console.log(error);
+        }
+        
     };
     const handleButton = (event) => {
         event.preventDefault();
