@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Navigation} from './Navigation'
 import "./styles.css";
 
 function SideBar (props){
-    console.log(props.itens);
-    try {
-        fetch("https://server-surveycapybara.dudeful.com/pools/all").then((response) => console.log(response.json())).then((data) => console.log(data));
-    } catch (error) {
-        console.log(error);
-    }
+    const [itens, setItens] = useState([]);
+    useEffect (()=>{
+        async function fetchItens(){
+            try {
+                const publicPools = await fetch("https://server-surveycapybara.dudeful.com/pools/public")
+                .then((response) => response.json())
+                .then((data) => data.pools);
+                setItens(publicPools);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchItens();
+    },itens);
     return (
         <div className='side-bar'>
-            {props.itens.map((item, i) => {
+            {itens.map((item, i) => {
                 return (<Navigation
-                href={item.code}
+                href={item.id}
                 name={item.name}/>)
             })}
             <a className='navigation-create' href='/create-pool'>+</a>

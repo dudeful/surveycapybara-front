@@ -45,9 +45,7 @@ function Login(props) {
 
     if (data.isAuthenticated) {
       setUser(data.user);
-      //navigate(`/pool/${pool_id}`);
       navigate(`/code`);
-      //navigate(-1);
     }
   };
 

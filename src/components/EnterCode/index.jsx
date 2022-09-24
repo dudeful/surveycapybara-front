@@ -18,11 +18,16 @@ const EnterCode = () => {
             return;
         }
 
-        const url = '/pool/' + pool.id + ((pool.password !== "") ? '?' + pool.password : "");
+        const url = 'https://server-surveycapybara.dudeful.com/pools?id=' + pool.id + ((pool.password !== "") ? '&?' + pool.password : "");
 
         try {
-            //fetch(url).then((response) => console.log(response.json())).then((data) => console.log(data));
-            navigate(url);
+            fetch(url).then((response) => {
+                response.json();
+            }).then((data) => {
+                console.log(data);
+                
+            });;
+            //navigate(url);
         } catch (error) {
             console.log(error);
         }
