@@ -1,10 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../Context/UserContext';
+import InputOption from './InputOption';
 import "./styles.css"
 
 function CreatePool(props){
     const navigate = useNavigate();
+    const [user, setUser] = useContext(UserContext);
     const [prot, setProt] = useState(false);
+    const pool = {
+        owner: user.email,
+        name: "",
+        description: "Testes",
+        positive_votes_per_voter: undefined,
+        negative_votes_per_voter: 0,
+        negative_votes_threshold: 0,
+        weighted_vote: false,
+        visible_vote: true,
+        private_pool: prot,
+        pool_password: null,
+        voting_time: 1000,
+        registered_pool: false,
+        open_options: false,
+        options_per_voter: 0,
+        options: []
+    };
+
+    
+
+    console.log(user);
+
     const [arr, setArr] = useState([{
         value: "",
         id: "option-0"
@@ -16,27 +41,15 @@ function CreatePool(props){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const pool = {
-            owner: "dudeful@outlook.com",
-            name: document.getElementById("title").value,
-            description: "Testes",
-            positive_votes_per_voter: document.getElementById("numVotes").value,
-            negative_votes_per_voter: 0,
-            negative_votes_threshold: 0,
-            weighted_vote: false,
-            visible_vote: true,
-            private_pool: prot,
-            pool_password: null,
-            voting_time: 1000,
-            registered_pool: false,
-            open_options: false,
-            options_per_voter: 0,
-            options: arr.map(item => {
-                const key= {}
-                key[item.value] = 0;
-                return key;
-            })
-        };
+
+        pool.name = document.getElementById("title").value;
+        pool.positive_votes_per_voter = document.getElementById("numVotes").value;
+        pool.options = arr.map(item => {
+            const key= {}
+            key[item.value] = 0;
+            return key;
+        })
+
 
         const complete = arr.reduce((previusValor, currentValor) => {
             if ((currentValor.value !== "") && (previusValor)){
@@ -98,6 +111,18 @@ function CreatePool(props){
         }
     }
 
+    const removeHandler= (event) =>{
+        event.preventDefault();
+        if (arr.length <=2){
+            return;
+        }
+        arr.splice(Number(event.target.id.split("-")[1]), 1);
+        arr.forEach((element, i) =>{
+            element.id = "option-" + i;
+        });
+        setArr([...arr]);
+    }
+
     const password = () =>{
         if (prot){
             return (
@@ -132,16 +157,12 @@ function CreatePool(props){
                 {password()}
                 {arr.map((item, i) => {
                     return (
-                        <div className='input-form-box'>
-                            <input
-                                defaultValue={item.value}
-                                id={"option-"+i}
-                                type={"text"}
-                                className={"input-form"}
-                                placeholder={"Preencher opção"}
-                                onChange={inputHandler}
-                            />
-                        </div>
+                        <InputOption
+                            value={item.value}
+                            id={"option-"+i}
+                            inputHandler={inputHandler}
+                            removeHandler={removeHandler}
+                        />
                         );
                 })}
                 <div className='divButtons'>

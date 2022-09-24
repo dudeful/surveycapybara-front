@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Option (props){
+function InputOption (props){
     return (
         <div  className='input-form-box'>
             <input
@@ -11,9 +11,9 @@ function Option (props){
                placeholder={"Preencher opção"}
                onChange={props.inputHandler}
             />
-            <button>-</button>
+            <button className='removeInput' onClick={props.removeHandler}>-</button>
         </div>
     )
 }
 
-export  {Option};
+export default InputOption;
