@@ -22,7 +22,8 @@
 .create-pool{
     display:flex;
     flex-direction: column;
-    margin-left: 15%;
+    margin-left: 38%;
+    max-width: 100vw;
 }
 
 .input-form-box{

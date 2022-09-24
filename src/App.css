@@ -29,6 +29,7 @@ header {
   width: 100vw;
   height: 5vh;
   background-color: #5B28BF;
+  position: fixed;
 }
 
 img {

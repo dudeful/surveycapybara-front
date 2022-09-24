@@ -3,9 +3,13 @@
     flex-flow: column;
     background-color: #454545;
     width: 18%;
+    max-width: 18%;
+    margin-top: 5vh;
     padding-left: 1%;
     padding-top: 5vh;
+    height: 95vh;
     max-height: 95vh;
+    position: fixed;
 }
 
 .navigation{

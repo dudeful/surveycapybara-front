@@ -31,7 +31,11 @@ function CreatePool(props){
             registered_pool: false,
             open_options: false,
             options_per_voter: 0,
-            options: arr
+            options: arr.map(item => {
+                const key= {}
+                key[item.value] = 0;
+                return key;
+            })
         };
 
         const complete = arr.reduce((previusValor, currentValor) => {
@@ -60,7 +64,7 @@ function CreatePool(props){
                 method: 'POST',
                 headers: {"content-type": "application/json"},
                 body: JSON.stringify({pool})
-            });
+            }).then(responce => responce).then(data => data);
         }catch(error){
             console.log(error);
         }
