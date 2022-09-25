@@ -33,6 +33,9 @@
   flex-flow: column;
   background: #454545;
   min-width: 25vw;
+  margin-top: 2em;
+  min-height: 100vh;
+  max-height: 100vh;
 }
 
 .user{

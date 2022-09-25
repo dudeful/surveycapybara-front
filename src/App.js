@@ -23,10 +23,10 @@ function App() {
             }
           />
           <Route 
-          path="/create-pool"
-          element={
-            <PoolForms />
-          } />
+            path="/create-pool"
+            element={
+              <PoolForms />
+            } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/code" element={<EnterCode />} />
