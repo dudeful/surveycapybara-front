@@ -1,13 +1,12 @@
 /* eslint-disable */
 import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
 import Voting from '../Voting';
 import Chat from '../Chat';
 import SideBar from '../SideBar';
 import Header from '../Header/Header';
-import MyPool from '../MyPool';
 import './styles.css';
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
@@ -22,15 +21,25 @@ function Pool(props) {
   const [messages, setMessages] = useState([]);
   const [options, setOptions] = useState({});
   const [user, setUser] = useContext(UserContext);
+  const [poolAuth, setPoolAuth] = useState();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
+    setPoolAuth(location.state);
+
     const fetchPool = async () => {
       try {
-        const response = await fetch(`${API_URL}/pools?id=${pool_id}`, { credentials: 'include' });
+        const response = await fetch(
+          `${API_URL}/pools?id=${pool_id}&password=${location.state.password}`,
+          {
+            credentials: 'include',
+          }
+        );
         const data = await response.json();
 
         setPool(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -114,7 +123,7 @@ function Pool(props) {
 
   return (
     <>
-      <Header> </Header>
+      <Header />
       <div className="main-page">
         <SideBar />
         {renderingPage(user.email)}

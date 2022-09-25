@@ -18,10 +18,7 @@ const EnterCode = () => {
       return;
     }
 
-    const url =
-      'https://server-surveycapybara.dudeful.com/pools?id=' +
-      pool.id +
-      (pool.password !== '' ? '&?' + pool.password : '');
+    const url = `https://server-surveycapybara.dudeful.com/pools?id=${pool.id}&password=${pool.password}`;
 
     try {
       fetch(url)
@@ -31,7 +28,9 @@ const EnterCode = () => {
         .then((data) => {
           console.log(data);
         });
-      //navigate(url);
+      navigate(`/pool/${pool.id}`, {
+        state: { id: pool.id, password: pool.password },
+      });
     } catch (error) {
       console.log(error);
     }
