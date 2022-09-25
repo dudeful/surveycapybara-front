@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Navigation } from './Navigation';
 import { UserContext } from '../Context/UserContext';
 import './styles.css';
@@ -20,29 +21,29 @@ function SideBar(props) {
     fetchItens();
   }, itens);
 
-  /*useEffect (()=>{
-        async function fetchItens(){
-            try {
-                const url = "https://server-surveycapybara.dudeful.com/pools/my-pools?user="+user.email;
-                const myPools = await fetch(url)
-                .then((response) => response.json())
-                .then((data) => data.pools);
-                setItens(s => [...s , ...myPools]);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        fetchItens();
-    },itens);*/
-
+  /*useEffect(() => {
+    async function fetchItens() {
+      try {
+        const url = 'https://server-surveycapybara.dudeful.com/pools/private' + (user.email !== '' ? '?user=' + user.email : '');
+        const myPools = await fetch(url)
+          .then((response) => response.json())
+          .then((data) => data.pools);
+        setItens((s) => [s, ...myPools]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchItens();
+  }, itens);
+*/
   return (
     <div className="side-bar">
       {itens.map((item, i) => {
         return <Navigation href={item.id} name={item.name} />;
       })}
-      <a className="navigation-create" href="/create-pool">
+      <Link className="navigation-create" to="/create-pool">
         +
-      </a>
+      </Link>
     </div>
   );
 }

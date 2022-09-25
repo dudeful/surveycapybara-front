@@ -46,11 +46,7 @@ function CreatePool(props) {
 
     pool.name = document.getElementById('title').value;
     pool.positive_votes_per_voter = document.getElementById('numVotes').value;
-    pool.options = arr.map((item) => {
-      const key = {};
-      key[item.value] = 0;
-      return key;
-    });
+    pool.options = arr;
 
     const complete = arr.reduce((previusValor, currentValor) => {
       if (currentValor.value !== '' && previusValor) {

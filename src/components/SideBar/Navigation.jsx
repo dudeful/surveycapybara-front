@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 function Navigation(props) {
   return (
     <>
-      <a className="navigation" href={'/pool/' + props.href}>
+      <Link className="navigation" to={'/pool/' + props.href}>
         {props.name}
-      </a>
+      </Link>
     </>
   );
 }
