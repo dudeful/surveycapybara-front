@@ -30,12 +30,14 @@ function CreatePool(props) {
 
   const [arr, setArr] = useState([
     {
-      value: '',
-      id: 'option-0',
+      votes: 0,
+      name: '',
+      id: 'option_0',
     },
     {
-      value: '',
-      id: 'option-1',
+      votes: 0,
+      name: '',
+      id: 'option_1',
     },
   ]);
 
@@ -88,9 +90,10 @@ function CreatePool(props) {
     setArr((s) => [
       ...s,
       {
-        value: '',
-        id: 'option-' + arr.length,
-      },
+        votes: 0,
+        name: '',
+        id: 'option_' + arr.length,
+      }
     ]);
   };
   const handleNumber = (event) => {
@@ -103,7 +106,7 @@ function CreatePool(props) {
   };
 
   const inputHandler = (event) => {
-    arr[Number(event.target.id.split('-')[1])].value = event.target.value;
+    arr[Number(event.target.id.split('_')[1])].name = event.target.value;
   };
 
   const checkboxHandler = () => {
