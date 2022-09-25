@@ -12,7 +12,7 @@ import IconLogin from '../../img/icon_login.png';
 import './styles.css';
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
-// const LOCALHOST = 'http://localhost:5000';
+//const API_URL = 'http://localhost:5000';
 
 function Login(props) {
   const [email, setEmail] = useState('');
@@ -24,8 +24,6 @@ function Login(props) {
   const navigate = useNavigate();
 
   const loginHandler = async () => {
-    // const email = document.getElementById('login_email').value;
-    // const password = document.getElementById('login_password').value;
 
     const user = { email, password };
 
@@ -62,7 +60,7 @@ function Login(props) {
 
   return (
     <>
-      <Header> </Header>
+      <Header />
       <form id="login" className="box-form-login">
         <fieldset className="box-fieldset-login">
           <legend className="box-login-modal">

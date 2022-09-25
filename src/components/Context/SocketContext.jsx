@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from './UserContext';
 
 const WS_URL = 'wss://ws-server-surveycapybara.dudeful.com';
+//const WS_URL = 'ws://localhost:5050';
 
 const SocketContext = createContext({});
 

@@ -27,7 +27,7 @@ const Register = () => {
     // const password = document.getElementById('register_password').value;
 
     const user = { email, password, username };
-
+    
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -37,7 +37,6 @@ const Register = () => {
 
     const response = await fetch(`${API_URL}/users/register`, options);
     const data = await response.json();
-
     console.log(data);
 
     if (data.isAuthenticated) {

@@ -71,6 +71,7 @@ function CreatePool(props) {
 
     try {
       fetch('https://server-surveycapybara.dudeful.com/pools/new', {
+    //fetch('http://localhost:5000', {  
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ pool }),

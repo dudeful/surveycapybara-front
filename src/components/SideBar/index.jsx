@@ -11,6 +11,7 @@ function SideBar(props) {
     async function fetchItens() {
       try {
         const publicPools = await fetch('https://server-surveycapybara.dudeful.com/pools/public')
+        //const publicPools = await fetch('http://localhost:5000/pools/public')
           .then((response) => response.json())
           .then((data) => data.pools);
         setItens((s) => [...publicPools]);
@@ -19,7 +20,7 @@ function SideBar(props) {
       }
     }
     fetchItens();
-  }, itens);
+  }, []);
 
   /*useEffect(() => {
     async function fetchItens() {
@@ -39,7 +40,7 @@ function SideBar(props) {
   return (
     <div className="side-bar">
       {itens.map((item, i) => {
-        return <Navigation href={item.id} name={item.name} />;
+        return <Navigation href={item.id} name={item.name} key={item.id} />;
       })}
       <Link className="navigation-create" to="/create-pool">
         +

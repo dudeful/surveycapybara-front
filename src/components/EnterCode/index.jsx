@@ -19,6 +19,7 @@ const EnterCode = () => {
     }
 
     const url = `https://server-surveycapybara.dudeful.com/pools?id=${pool.id}&password=${pool.password}`;
+    //const url = `http://localhost:5000/pools?id=${pool.id}&password=${pool.password}`
 
     try {
       fetch(url)
