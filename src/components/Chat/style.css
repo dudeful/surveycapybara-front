@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap');
 
-*{
+* {
   box-sizing: border-box;
   font-family: 'Asap', sans-serif;
 }
 
-.messageContainer{
+.messageContainer {
   max-height: 70vh;
   max-width: 25vw;
   margin-top: 10vh;
@@ -13,7 +13,7 @@
   margin-left: 5%;
 }
 
-.messageContainer::-webkit-scrollbar{
+.messageContainer::-webkit-scrollbar {
   width: auto;
   height: auto;
 }
@@ -21,33 +21,36 @@
 .messageContainer::-webkit-scrollbar {
   width: 1em;
 }
- 
+
 .messageContainer::-webkit-scrollbar-thumb {
   border-radius: 25px;
   background-color: darkgrey;
   outline: 2px solid slategrey;
 }
 
-.chat{
+.chat {
   display: flex;
   flex-flow: column;
   background: #454545;
   min-width: 25vw;
+  margin-top: 2em;
+  min-height: 100vh;
+  max-height: 100vh;
 }
 
-.user{
+.user {
   color: #f1f1f1;
 }
 
-.messeges{
+.messeges {
   display: flex;
   flex-direction: row;
 }
 
-.sender-btn{
+.sender-btn {
   border-radius: 25px;
   margin: 1em;
-  background-color: #A9A9A9;
+  background-color: #a9a9a9;
   transition: all 0.2s ease-in-out;
   height: 1.5em;
   font-size: 1em;
@@ -55,7 +58,7 @@
   margin-left: 7vw;
 }
 
-.chat_container{
+.chat_container {
   font-size: 2em;
   color: #080808;
   width: 70%;
@@ -63,23 +66,23 @@
   margin-right: 2.5vw;
   display: flex;
   flex-direction: column;
-  align-self:flex-end;
+  align-self: flex-end;
 }
 
-.message_text{
+.message_text {
   margin-top: 5px;
   height: 2em;
   font-family: 'Asap', sans-serif;
   border-radius: 15px;
   padding: 1em;
-  background: #A9A9A9;
+  background: #a9a9a9;
 }
 
 @media (max-width: 600px) {
-  .chat_container{
+  .chat_container {
     width: 90%;
   }
-  .chat_container{
+  .chat_container {
     font-size: 20px;
     height: 15vh;
   }

@@ -1,6 +1,7 @@
 /* eslint-disable */
 import './styles.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, Component } from 'react';
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
 import { Option } from './Option';
@@ -12,7 +13,7 @@ function Voting(props) {
 
   const castVote = (e) => {
     try {
-      if (count < 3) {
+      if (count < props.pool.posite_votes) {
         setCount(count + 1);
         const data = {
           user,
@@ -29,27 +30,72 @@ function Voting(props) {
     }
   };
 
-  if (!props.options.list) return <div>loading...</div>;
+  console.log(props.pool);
+
+  const votesAvailable = (avability) => {
+    if (avability > 1) {
+      return (
+        <p>
+          Você tem <span>{avability}</span> disponíveis
+        </p>
+      );
+    } else {
+      return (
+        <p>
+          Você tem <span>{avability}</span> disponível
+        </p>
+      );
+    }
+  };
+
+  const display = (status) => {
+    if (!status) {
+      return props.options.list.map((option) => {
+        return (
+          <Option
+            name={option.id}
+            id={option.id}
+            function={castVote}
+            votes={option.votes}
+            visibility={props.pool.visible}
+          />
+        );
+      });
+    } else {
+      return (
+        <BarChart width={730} height={250} data={props.options.list}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="id" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="votes" fill="#5B28BF" />
+        </BarChart>
+      );
+    }
+  };
+
+  if (!props.options.list) return <div className="voting">loading...</div>;
 
   return (
     <>
-      <div className='voting'>
-        <h2>Test</h2>
-        {props.options.list.map((option) => {
-          return (
-            <Option
-              name={option.id}
-              id={option.id}
-              function={castVote} 
-              votes={option.votes}
-              />
-          );
-        })}
+      <div className="voting">
+        <h2>{props.pool.title}</h2>
+        <p>{props.pool.description}</p>
+        {display(props.pool.posite_votes === count)}
         <div className="votes-display">
-          <label className='label-votes' htmlFor="allVotes">
-            N° de votos:
-          </label>
-          <input id='allVotes' className="total-votes" value={props.options.total_votes} disabled={true} />
+          <div>{votesAvailable(props.pool.posite_votes - count)}</div>
+          <div>
+            <label className="label-votes" htmlFor="allVotes">
+              N° total de votos:
+            </label>
+            <input
+              id="allVotes"
+              className="total-votes"
+              value={props.options.total_votes}
+              disabled={true}
+            />
+          </div>
         </div>
       </div>
     </>

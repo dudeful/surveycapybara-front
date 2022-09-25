@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
-import "./style.css"
+import './style.css';
 
 function Sender(props) {
   const socket = useContext(SocketContext);
@@ -25,7 +25,7 @@ function Sender(props) {
       console.error('<<<ERROR WHILE SENDING MESSAGE>>>');
       console.error(error);
     }
-    message_text.value = "";
+    message_text.value = '';
   };
 
   return (

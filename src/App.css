@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap');
 
 body {
-  font-size: 62.5%;
   font-family: 'Asap', sans-serif;
-  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
   background-color: #d1d1d1;
   margin: 0%;
   padding: 0%;
+  font-size: 60%;
 }
 
 #root {
@@ -28,14 +27,15 @@ header {
   align-items: center;
   width: 100vw;
   height: 5vh;
-  background-color: #5B28BF;
+  background-color: #5b28bf;
+  position: fixed;
 }
 
 img {
   width: 5rem;
 }
 
-h2{
+h2 {
   font-size: 5em;
 }
 
@@ -68,7 +68,7 @@ h2{
   display: flex;
   align-items: center;
   justify-content: center;
-  background:linear-gradient(135deg, #DADBCD,#5B28BF) ;
+  background: linear-gradient(135deg, #dadbcd, #5b28bf);
   padding: 0.4rem 1.6rem;
   border: none;
   cursor: pointer;
@@ -81,25 +81,25 @@ h2{
   font-weight: bold;
 }
 
-.input-form{
+.input-form {
   background-color: #f1f1f1;
   display: flex;
   font-size: 1.2rem;
   font-family: 'Asap', sans-serif;
   border: none;
   width: 70%;
-  border: solid 2px ;
+  border: solid 2px;
   border-radius: 25px;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: 15%;
 }
 
-.btn-login{
+.btn-login {
   display: flex;
   align-items: center;
   justify-content: center;
-  background:linear-gradient(135deg, #DADBCD,#5B28BF) ;
+  background: linear-gradient(135deg, #dadbcd, #5b28bf);
   padding: 0.4rem 1.6rem;
   border: none;
   cursor: pointer;
@@ -110,44 +110,46 @@ h2{
   font-family: 'Asap', sans-serif;
 }
 
-.btn-login:hover{
+.btn-login:hover {
   transition: all 1.2s ease;
-  background: linear-gradient(135deg, #5B28BF, #DADBCD);
-  color:#DADBCD ;
-  
+  background: linear-gradient(135deg, #5b28bf, #dadbcd);
+  color: #dadbcd;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
 }
 
-.asap { font-family: 'Asap', sans-serif; }
+.asap {
+  font-family: 'Asap', sans-serif;
+}
 
-.divButtons{
+.divButtons {
   display: flex;
   justify-content: space-around;
   padding-left: 3em;
 }
 
-.page{
-  display:flex;
+.page {
+  display: flex;
   width: 100vw;
   height: 100vh;
 }
 
-.label-input{
+.label-input {
   font-family: 'Asap', sans-serif;
   font-size: 2em;
   padding-left: 2em;
 }
 
-.input-form-small{
+.input-form-small {
   max-width: 3em;
   justify-self: flex-end;
 }
 
-.messeges{
+.messeges {
   padding-left: 15%;
   font-family: 'Asap', sans-serif;
   font-size: 2em;

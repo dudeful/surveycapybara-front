@@ -9,17 +9,15 @@ import IconProfilePlus from '../../img/icon_profile_plus.png';
 import IconEmail from '../../img/icon_email.png';
 import IconPassword from '../../img/icon_password.png';
 import IconLogin from '../../img/icon_login.png';
-import "./styles.css"
+import './styles.css';
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
 
 function Login(props) {
-
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
-  const [status, setStatus] = useState(false)
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [status, setStatus] = useState(false);
 
   const { pool_id } = useParams();
   const [user, setUser] = useContext(UserContext);
@@ -28,7 +26,7 @@ function Login(props) {
   const loginHandler = async () => {
     // const email = document.getElementById('login_email').value;
     // const password = document.getElementById('login_password').value;
-    
+
     const user = { email, password };
 
     const options = {
@@ -45,39 +43,35 @@ function Login(props) {
 
     if (data.isAuthenticated) {
       setUser(data.user);
-      //navigate(`/pool/${pool_id}`);
       navigate(`/code`);
-      //navigate(-1);
     }
   };
 
   const handleStatus = (e) => {
-    setStatus(true)
+    setStatus(true);
     navigate(`/register`);
-  }
- 
+  };
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
-   
-  }
+  };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    
-  }
+  };
 
   return (
     <>
       <Header> </Header>
-      <form id="login" className='box-form-login'>
-        <fieldset className='box-fieldset-login'>
+      <form id="login" className="box-form-login">
+        <fieldset className="box-fieldset-login">
           <legend className="box-login-modal">
             <div className="box-modal-login">
               <img src={IconProfile} alt="" />
               <input className="input-btn-login" type="button" value="LOGIN" />
             </div>
 
-            <div className="box-modal-register" value = {status} onClick={handleStatus}>
+            <div className="box-modal-register" value={status} onClick={handleStatus}>
               <img src={IconProfilePlus} alt="" />
               <input className="input-btn-register" type="button" value="REGISTER" />
             </div>

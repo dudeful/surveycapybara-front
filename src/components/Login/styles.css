@@ -8,6 +8,7 @@
   border-radius: 5px;
   border: none;
   box-shadow: 5px 5px 5px black;
+  margin-top: 5em;
 }
 
 .input-btn-register,
@@ -19,7 +20,7 @@
   font-size: 0.9rem;
   font-weight: bold;
   background-color: #dadbcd00;
-  color: #5C442A;
+  color: #5c442a;
 }
 
 .box-login-modal,
@@ -30,7 +31,7 @@
   border: solid black 2px;
   width: 98%;
   height: 5rem;
-  background-color: #DADBCD;
+  background-color: #dadbcd;
   margin-bottom: 4.5rem;
   border-radius: 10px;
 }
@@ -46,7 +47,7 @@
   align-items: center;
   width: 45%;
   height: 3.5rem;
-  background-color: #F1EFE5;
+  background-color: #f1efe5;
   border-radius: 10px;
 }
 
@@ -56,7 +57,7 @@
 }
 
 .box-modal-register:hover {
-  background: linear-gradient(225deg, #a1a8167e, #F1EFE5);
+  background: linear-gradient(225deg, #a1a8167e, #f1efe5);
 }
 
 .input-box-email,
@@ -100,7 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #DADBCD, #5B28BF);
+  background: linear-gradient(135deg, #dadbcd, #5b28bf);
   padding: 0.4rem 1.6rem;
   border: none;
   cursor: pointer;
@@ -114,9 +115,8 @@
 .btn-login:hover,
 .bnt-forms:hover {
   transition: all 1.2s ease;
-  background: linear-gradient(135deg, #5B28BF, #DADBCD);
-  color: #DADBCD;
-
+  background: linear-gradient(135deg, #5b28bf, #dadbcd);
+  color: #dadbcd;
 }
 
 textarea:focus,
