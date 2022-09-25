@@ -25,9 +25,8 @@ const EnterCode = () => {
         .then((response) => {
           response.json();
         })
-        .then((data) => {
-          console.log(data);
-        });
+        .then((data) => data);
+      
       navigate(`/pool/${pool.id}`, {
         state: { id: pool.id, password: pool.password },
       });
@@ -37,9 +36,9 @@ const EnterCode = () => {
   };
   return (
     <>
-      <Header> </Header>
+      <Header />
       <div className="page">
-        <SideBar itens={[{ name: 'teste', code: 'ea78cc88' }]} />
+        <SideBar />
         <form className="box-form-code centrilize">
           <h2> Surveycabybara</h2>
           <fieldset className="box-fieldset-code">

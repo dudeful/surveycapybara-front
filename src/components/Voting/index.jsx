@@ -49,6 +49,7 @@ function Voting(props) {
   };
 
   const display = (status) => {
+    console.log(props.options);
     if (!status) {
       return props.options.list.map((option) => {
         return (
