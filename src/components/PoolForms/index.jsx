@@ -8,7 +8,7 @@ const PoolForms = () =>{
         <>
           <Header> </Header>
             <div className="page">
-                <SideBar itens={[{name:"teste", code:"ea78cc88"}]} />
+                <SideBar />
                 <CreatePool />
             </div>
         </>

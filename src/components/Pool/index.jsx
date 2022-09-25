@@ -105,7 +105,7 @@ function Pool(props) {
     <>
       <Header> </Header>
       <div className='main-page'>
-        <SideBar itens={[{name:"teste", id:"ea78cc88"}]} />
+        <SideBar />
         {renderingPage(false)}
         <Chat messages={messages} />
       </div>
