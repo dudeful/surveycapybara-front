@@ -25,8 +25,7 @@ const EnterCode = () => {
                 response.json();
             }).then((data) => {
                 console.log(data);
-                
-            });;
+            });
             //navigate(url);
         } catch (error) {
             console.log(error);

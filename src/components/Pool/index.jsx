@@ -101,7 +101,12 @@ function Pool(props) {
         visible: pool.pool.visible_vote
       }
       //console.log(pool);
-      return (<Voting pool={poolData} options={options} />);
+      return (
+        <>
+          <Voting pool={poolData} options={options} />
+          <Chat messages={messages} />
+        </>
+      );
     }else{
       return <div>loading...</div>;
     }
@@ -113,7 +118,6 @@ function Pool(props) {
       <div className='main-page'>
         <SideBar />
         {renderingPage(user.email)}
-        <Chat messages={messages} />
       </div>
     </>
   );
