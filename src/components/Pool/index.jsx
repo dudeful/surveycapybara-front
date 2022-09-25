@@ -30,8 +30,6 @@ function Pool(props) {
         const response = await fetch(`${API_URL}/pools?id=${pool_id}`, { credentials: 'include' });
         const data = await response.json();
 
-        console.log(data);
-
         setPool(data);
       } catch (error) {
         console.error(error);
@@ -94,10 +92,18 @@ function Pool(props) {
   }, [socket.onmessage]);
 
   const renderingPage = (owner) => {
-    if (owner){
-      return (<MyPool options={options} />);
+    if (pool !== undefined){
+      const poolData= {
+        pool_ownership: (pool.pool.owner === owner),
+        title: pool.pool.name,
+        posite_votes: pool.pool.positive_votes_per_voter,
+        description: pool.pool.description,
+        visible: pool.pool.visible_vote
+      }
+      //console.log(pool);
+      return (<Voting pool={poolData} options={options} />);
     }else{
-      return (<Voting options={options} />);
+      return <div>loading...</div>;
     }
   }
 
@@ -106,7 +112,7 @@ function Pool(props) {
       <Header> </Header>
       <div className='main-page'>
         <SideBar />
-        {renderingPage(false)}
+        {renderingPage(user.email)}
         <Chat messages={messages} />
       </div>
     </>

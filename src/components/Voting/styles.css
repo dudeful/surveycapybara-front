@@ -8,10 +8,11 @@ h2{
   flex-direction: column;
   width: 70%;
   max-height: 100vh;
-  min-height: 100vh;
+  min-height: 90vh;
   max-width: 60vw;
   overflow-y: scroll;
   margin-left: 25%;
+  margin-top: 5em;
 }
 
 .voting::-webkit-scrollbar{
@@ -29,10 +30,6 @@ h2{
   outline: 2px solid slategrey;
 }
 
-.option{
-  border-right: solid #000000;
-}
-
 .qntvotes{
   border-left: solid #000000;
   padding-top: 1em;
@@ -42,7 +39,6 @@ h2{
 .option{
   background-color: #5B28BF;
   border: #080808 solid 2px;
-  border-radius: 10px 0px 0px 10px;
   font-family: 'Asap', sans-serif;
   font-size: 2em;
   color: #f1f1f1;
@@ -53,6 +49,23 @@ h2{
   padding-left: 2em;
   padding-top: 1em;
   padding-bottom: 1em;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.option-round{
+  background-color: #5B28BF;
+  border: #080808 solid 2px;
+  font-family: 'Asap', sans-serif;
+  font-size: 2em;
+  color: #f1f1f1;
+  width: 60%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  margin-right: 0%;
+  padding-left: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 10px;
 }
 
 .boxOption{
@@ -94,5 +107,10 @@ h2{
 }
 
 .votes-display{
-  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+p{
+  font-size: 2em;
 }
