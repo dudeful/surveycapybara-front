@@ -9,8 +9,8 @@ import SideBar from '../SideBar';
 import Header from '../Header/Header';
 import './styles.css';
 
-//const API_URL = 'https://server-surveycapybara.dudeful.com';
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://server-surveycapybara.dudeful.com';
+//const API_URL = 'http://localhost:5000';
 
 function Pool(props) {
   // ea78cc88
@@ -19,7 +19,7 @@ function Pool(props) {
   const socket = useContext(SocketContext);
   const [pool, setPool] = useState();
   const [messages, setMessages] = useState([]);
-  const [options, setOptions] = useState({});
+  const [options, setOptions] = useState([]);
   const [user, setUser] = useContext(UserContext);
   const [poolAuth, setPoolAuth] = useState();
   const navigate = useNavigate();
@@ -31,14 +31,14 @@ function Pool(props) {
     const fetchPool = async () => {
       try {
         const response = await fetch(
-          `${API_URL}/pools?id=${pool_id}&password=${location.state.password}`,
+          `${API_URL}/pools?id=${pool_id}&password=${location.state?.password || ""}`,
           {
             credentials: 'include',
           }
         );
         const data = await response.json();
-
-        setPool(data);
+        setPool(data.pool);
+        console.log("fetchPool data");
         console.log(data);
       } catch (error) {
         console.error(error);
@@ -71,6 +71,8 @@ function Pool(props) {
   useEffect(() => {
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
+      console.log("socket.onmessage data");
+      console.log(event.data);
 
       try {
         switch (data.code) {
@@ -88,7 +90,7 @@ function Pool(props) {
             break;
           case 3:
             setOptions(data.options);
-            setMessages(data.message_history);
+            setMessages(data.messages || []);
             break;
           default:
             break;
@@ -101,24 +103,30 @@ function Pool(props) {
   }, [socket.onmessage]);
 
   const renderingPage = (owner) => {
-    if (pool !== undefined) {
-      const poolData = {
-        pool_ownership: pool.pool.owner === owner,
-        title: pool.pool.name,
-        posite_votes: pool.pool.positive_votes_per_voter,
-        description: pool.pool.description,
-        visible: pool.pool.visible_vote,
-      };
-      //console.log(pool);
-      return (
-        <>
-          <Voting pool={poolData} options={options} />
-          <Chat messages={messages} />
-        </>
-      );
-    } else {
+    console.log("renderingPage pool")
+    console.log(pool);
+    // guarda (bail out)
+    if (pool === undefined) {
       return <div>loading...</div>;
     }
+
+    const poolData = {
+      pool_ownership: pool.owner === owner,
+      title: pool.name,
+      posite_votes: pool.positive_votes_per_voter,
+      description: pool.description,
+      visible: pool.visible_vote,
+    };
+    //console.log(pool);
+    console.log("Pool options")
+    console.log(options)
+    return (
+      <>
+        <Voting pool={poolData} options={options} />
+        <Chat messages={messages} />
+      </>
+    );
+
   };
 
   return (

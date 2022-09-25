@@ -19,7 +19,7 @@ function SideBar(props) {
       }
     }
     fetchItens();
-  }, itens);
+  }, []);
 
   /*useEffect(() => {
     async function fetchItens() {
@@ -39,7 +39,7 @@ function SideBar(props) {
   return (
     <div className="side-bar">
       {itens.map((item, i) => {
-        return <Navigation href={item.id} name={item.name} />;
+        return <Navigation href={item.id} name={item.name} key={item.id} />;
       })}
       <Link className="navigation-create" to="/create-pool">
         +

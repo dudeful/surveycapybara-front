@@ -11,6 +11,9 @@ function Voting(props) {
   const [user, setUser] = useContext(UserContext);
   const [count, setCount] = useState(0);
 
+  console.log("Voting props.options")
+  console.log(props.options)
+
   const castVote = (e) => {
     try {
       if (count < props.pool.posite_votes) {
@@ -21,6 +24,8 @@ function Voting(props) {
           vote: e.target.id,
         };
 
+        console.log("Voting castVote socket.send data")
+        console.log(data)
         socket.send(JSON.stringify(data));
         e.currentTarget.disabled = true;
       }
@@ -51,9 +56,10 @@ function Voting(props) {
   const display = (status) => {
     console.log(props.options);
     if (!status) {
-      return props.options.list.map((option) => {
+      return props.options.map((option) => {
         return (
           <Option
+            key={option.id}
             name={option.id}
             id={option.id}
             function={castVote}
@@ -64,7 +70,7 @@ function Voting(props) {
       });
     } else {
       return (
-        <BarChart width={730} height={250} data={props.options.list}>
+        <BarChart width={730} height={250} data={props.options}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="id" />
           <YAxis />
@@ -76,7 +82,7 @@ function Voting(props) {
     }
   };
 
-  if (!props.options.list) return <div className="voting">loading...</div>;
+  if (!props.options) return <div className="voting">loading...</div>;
 
   return (
     <>
