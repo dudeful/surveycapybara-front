@@ -1,114 +1,126 @@
 .box-fieldset-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 27rem;
-    height: 36rem;
-    background-color: white;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 5px 5px 5px black;
-    margin-top: 5em;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 27rem;
+  height: 36rem;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 5px black;
+  margin-top: 5em;
+}
 
-  .input-btn-register, .input-btn-login {
-    padding: 0;
-    display: flex;
-    border:none;
-    font-family: 'Asap', sans-serif;
-    font-size: 0.9rem;
-    font-weight: bold;
-    background-color: #dadbcd00;
-    color: #5C442A;
-  }
+.input-btn-register,
+.input-btn-login {
+  padding: 0;
+  display: flex;
+  border: none;
+  font-family: 'Asap', sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: #dadbcd00;
+  color: #5c442a;
+}
 
-  .box-login-modal, .box-modal{
-    display: flex;
-    align-items: center;
-    justify-content:space-around;
-    border: solid black 2px;
-    width: 98%;
-    height: 5rem;
-    background-color: #DADBCD;
-    margin-bottom: 4.5rem;
-    border-radius: 10px;
-  }
+.box-login-modal,
+.box-modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: solid black 2px;
+  width: 98%;
+  height: 5rem;
+  background-color: #dadbcd;
+  margin-bottom: 4.5rem;
+  border-radius: 10px;
+}
 
-   .box-modal-register {
-    cursor: pointer;
-  }
+.box-modal-register {
+  cursor: pointer;
+}
 
-  .box-modal-login, .box-modal-register, .box-modal {
-    display: flex;
-    align-items: center;
-    width: 45%;
-    height: 3.5rem;
-    background-color: #F1EFE5;
-    border-radius: 10px;
-  }
-  
-  .box-modal-register {
-    border: none;
-    background-color: #a1a81600;
-  }
-  
-  .box-modal-register:hover {
-    background:linear-gradient(225deg,#a1a8167e,#F1EFE5) ;
-  } 
-  
-  .input-box-email, .input-box-password, .input-form-box, .input-box-username{
-    display: flex;
-    align-items: center;
-    padding-bottom: 1rem;
-    width: 100%;
-  }
-  
-  .input-email, .input-password, .input-form, .input-username{
-    display: flex;
-    font-size: 1.2rem;
-    font-family: 'Asap', sans-serif;
-    border: none;
-    width: 70%;
-    border-bottom: solid 2px ;
-  }
+.box-modal-login,
+.box-modal-register,
+.box-modal {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  height: 3.5rem;
+  background-color: #f1efe5;
+  border-radius: 10px;
+}
 
-  .input-form-login{
-    background-color: #f1f1f1;
-    display: flex;
-    font-size: 1.2rem;
-    font-family: 'Asap', sans-serif;
-    border: none;
-    width: 70%;
-    border: solid 2px ;
-    border-radius: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: 15%;
-  }
+.box-modal-register {
+  border: none;
+  background-color: #a1a81600;
+}
 
-  .btn-login, .bnt-forms  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:linear-gradient(135deg, #DADBCD,#5B28BF) ;
-    padding: 0.4rem 1.6rem;
-    border: none;
-    cursor: pointer;
-    margin: 2rem;
-    color: #080808;
-    border-radius: 10px;
-    transition: all 1.2s ease;
-    font-family: 'Asap', sans-serif;
-  }
+.box-modal-register:hover {
+  background: linear-gradient(225deg, #a1a8167e, #f1efe5);
+}
 
-  .btn-login:hover, .bnt-forms:hover {
-    transition: all 1.2s ease;
-    background: linear-gradient(135deg, #5B28BF, #DADBCD);
-    color:#DADBCD ;
-    
-  }
-  
-  textarea:focus, input:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
-  }
+.input-box-email,
+.input-box-password,
+.input-form-box,
+.input-box-username {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+.input-email,
+.input-password,
+.input-form,
+.input-username {
+  display: flex;
+  font-size: 1.2rem;
+  font-family: 'Asap', sans-serif;
+  border: none;
+  width: 70%;
+  border-bottom: solid 2px;
+}
+
+.input-form-login {
+  background-color: #f1f1f1;
+  display: flex;
+  font-size: 1.2rem;
+  font-family: 'Asap', sans-serif;
+  border: none;
+  width: 70%;
+  border: solid 2px;
+  border-radius: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 15%;
+}
+
+.btn-login,
+.bnt-forms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #dadbcd, #5b28bf);
+  padding: 0.4rem 1.6rem;
+  border: none;
+  cursor: pointer;
+  margin: 2rem;
+  color: #080808;
+  border-radius: 10px;
+  transition: all 1.2s ease;
+  font-family: 'Asap', sans-serif;
+}
+
+.btn-login:hover,
+.bnt-forms:hover {
+  transition: all 1.2s ease;
+  background: linear-gradient(135deg, #5b28bf, #dadbcd);
+  color: #dadbcd;
+}
+
+textarea:focus,
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}

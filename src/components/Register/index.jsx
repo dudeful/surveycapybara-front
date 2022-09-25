@@ -17,15 +17,15 @@ const Register = () => {
   const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
 
-  const [username,setUsername] = useState("");
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
-  const [status, setStatus] = useState(false)
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [status, setStatus] = useState(false);
 
   const registerHandler = async () => {
     // const email = document.getElementById('register_email').value;
     // const password = document.getElementById('register_password').value;
-    
+
     const user = { email, password, username };
 
     const options = {
@@ -49,34 +49,33 @@ const Register = () => {
   };
 
   const handleStatus = (e) => {
-    setStatus(true)
-    console.log(status)
+    setStatus(true);
+    console.log(status);
     navigate(`/login`);
-  }
- 
+  };
+
   const handleUsername = (e) => {
     setUsername(e.target.value);
-    console.log(username)
-   
-  }
+    console.log(username);
+  };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    console.log(email)
-  }
+    console.log(email);
+  };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    console.log(password)
-  }
+    console.log(password);
+  };
 
   return (
     <>
-        <Header> </Header>
-      <form id="register" className='box-form-register'>
-        <fieldset className='box-fieldset-register'>
+      <Header> </Header>
+      <form id="register" className="box-form-register">
+        <fieldset className="box-fieldset-register">
           <legend className="box-modal">
-            <div className="box-modal-l-login" value = {status} onClick={handleStatus}>
+            <div className="box-modal-l-login" value={status} onClick={handleStatus}>
               <img src={IconProfile} alt="" />
               <input className="input-btn-login" type="button" value="LOGIN" />
             </div>
@@ -119,14 +118,19 @@ const Register = () => {
               onChange={handlePassword}
             />
           </div>
-        
-          <button type="button" className="btn-register" id="register_button" onClick={registerHandler}>
+
+          <button
+            type="button"
+            className="btn-register"
+            id="register_button"
+            onClick={registerHandler}
+          >
             <h3>REGISTER</h3>
           </button>
         </fieldset>
       </form>
     </>
-  )
-}
+  );
+};
 
 export default Register;

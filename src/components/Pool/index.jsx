@@ -5,10 +5,10 @@ import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
 import Voting from '../Voting';
 import Chat from '../Chat';
-import SideBar from '../SideBar'
+import SideBar from '../SideBar';
 import Header from '../Header/Header';
-import MyPool from '../MyPool'
-import "./styles.css";
+import MyPool from '../MyPool';
+import './styles.css';
 
 const API_URL = 'https://server-surveycapybara.dudeful.com';
 // const LOCALHOST = 'http://localhost:5000';
@@ -92,14 +92,14 @@ function Pool(props) {
   }, [socket.onmessage]);
 
   const renderingPage = (owner) => {
-    if (pool !== undefined){
-      const poolData= {
-        pool_ownership: (pool.pool.owner === owner),
+    if (pool !== undefined) {
+      const poolData = {
+        pool_ownership: pool.pool.owner === owner,
         title: pool.pool.name,
         posite_votes: pool.pool.positive_votes_per_voter,
         description: pool.pool.description,
-        visible: pool.pool.visible_vote
-      }
+        visible: pool.pool.visible_vote,
+      };
       //console.log(pool);
       return (
         <>
@@ -107,15 +107,15 @@ function Pool(props) {
           <Chat messages={messages} />
         </>
       );
-    }else{
+    } else {
       return <div>loading...</div>;
     }
-  }
+  };
 
   return (
     <>
       <Header> </Header>
-      <div className='main-page'>
+      <div className="main-page">
         <SideBar />
         {renderingPage(user.email)}
       </div>
