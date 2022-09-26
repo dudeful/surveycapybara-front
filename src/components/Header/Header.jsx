@@ -4,7 +4,6 @@ const Header = (props) => {
   const profile = props.profile
   return (
     <header >
-     
      <img  className='img-logo-capybara' src={logoCapybara} alt="" />
 
       <div className='box-header-n'>
