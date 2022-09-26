@@ -10,7 +10,7 @@ function CreatePool(props) {
   const [prot, setProt] = useState(false);
   const pool = {
     owner: user.email,
-    name: '',
+    name: user.username,
     description: 'Testes',
     positive_votes_per_voter: undefined,
     negative_votes_per_voter: 0,
