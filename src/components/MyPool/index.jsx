@@ -1,6 +1,6 @@
 /* eslint-disable */
 import './styles.css';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 
 function MyPool(props) {
   if (!props.options.list) return <div>loading...</div>;

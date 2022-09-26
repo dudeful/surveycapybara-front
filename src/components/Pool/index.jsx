@@ -60,7 +60,7 @@ function Pool(props) {
           navigate('/login');
         } else {
           // when refreshing cookies, must reset username and email
-          //setUser({ username: token.decoded.username, email: token.decoded.email });
+          setUser({ username: token.decoded.username, email: token.decoded.email });
           navigate(`/pool/${pool_id}`);
         }
       } catch (error) {
