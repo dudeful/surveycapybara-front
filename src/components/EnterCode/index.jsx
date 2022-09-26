@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import Header from '../Header/Header';
 import SideBar from '../SideBar';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../Context/UserContext';
+import { SocketContext } from '../Context/SocketContext';
 import './styles.css';
 
 const EnterCode = () => {
+
+  const [user, setUser] = useContext(UserContext);
+
   const navigate = useNavigate();
   const buttonHandler = (event) => {
     event.preventDefault();
@@ -37,7 +42,7 @@ const EnterCode = () => {
   };
   return (
     <>
-      <Header />
+      <Header profile = {user.username}/>
       <div className="page">
         <SideBar />
         <form className="box-form-code centrilize">

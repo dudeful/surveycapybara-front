@@ -24,6 +24,7 @@ body {
 header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100vw;
   height: 5vh;
   background-color: #5b28bf;
@@ -36,7 +37,18 @@ header {
 }
 
 .box-header-n {
-  
+  font-size: 1.3rem;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 2rem;
+  color: #dadbcd;
+}
+
+.profile-or-login, .sign-up-or-in {
+  cursor: pointer;
+  padding: 0 1rem;
 }
 
 img {

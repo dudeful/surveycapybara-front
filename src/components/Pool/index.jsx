@@ -26,6 +26,7 @@ function Pool(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  console.log("user: ", user)
   console.log("Pool Messages");
   console.log(messages);
 
@@ -135,9 +136,9 @@ function Pool(props) {
 
   return (
     <>
-      <Header />
       <div className="main-page">
         <SideBar />
+      <Header profile = {user.username} />
         {renderingPage(user.email)}
       </div>
     </>
