@@ -1,7 +1,7 @@
 /* eslint-disable */
 import './styles.css';
 import React, { useContext, useState, Component } from 'react';
-import { BarChart, CartesianGrid, XAxis, YAxis,Tooltip, Legend, Bar } from 'recharts'
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
 import { Option } from './Option';
@@ -37,32 +37,37 @@ function Voting(props) {
 
   console.log(props.pool);
 
-  const votesAvailable = (avability) =>{
-    if (avability > 1){
-      return (<p>Você tem <span>{avability}</span> disponíveis</p>)
-    }else{
-      return (<p>Você tem <span>{avability}</span> disponível</p>)
-    }
-  }
-
-  const display = (status) =>{
-    if (!status){
+  const votesAvailable = (avability) => {
+    if (avability > 1) {
       return (
-        props.options.map((option) => {
-          return (
-            <Option
-              key={option.id}
-              name={option.id}
-              id={option.id}
-              function={castVote} 
-              votes={option.votes}
-              visibility={props.pool.visible}
-              />
-          );
-        })
+        <p>
+          Você tem <span>{avability}</span> disponíveis
+        </p>
       );
-    }else{
+    } else {
+      return (
+        <p>
+          Você tem <span>{avability}</span> disponível
+        </p>
+      );
+    }
+  };
 
+  const display = (status) => {
+    if (!status) {
+      return props.options.map((option) => {
+        return (
+          <Option
+            key={option.id}
+            name={option.name}
+            id={option.id}
+            function={castVote}
+            votes={option.votes}
+            visibility={props.pool.visible}
+          />
+        );
+      });
+    } else {
       return (
         <BarChart width={730} height={250} data={props.options}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -74,26 +79,30 @@ function Voting(props) {
         </BarChart>
       );
     }
-  }
+  };
 
-  if (!props.options) return <div className='voting'>loading...</div>;
-
+  if (!props.options) return <div className="voting">loading...</div>;
 
   return (
     <>
-      <div className='voting'>
+      <div className="voting">
         <h2>{props.pool.title}</h2>
         <p>{props.pool.description}</p>
-        {display (props.pool.posite_votes === count)}
+        {display(props.pool.posite_votes === count)}
         <div className="votes-display">
+          <div>{votesAvailable(props.pool.posite_votes - count)}</div>
           <div>
-            {votesAvailable(props.pool.posite_votes - count)}
-          </div>
-          <div>
-            <label className='label-votes' htmlFor="allVotes">
+            <label className="label-votes" htmlFor="allVotes">
               N° total de votos:
             </label>
-            <input id='allVotes' className="total-votes" value={props.options.total_votes} disabled={true} />
+            <input
+              id="allVotes"
+              className="total-votes"
+              value={props.options.reduce((prev, cur) => {
+                return prev + cur.votes;
+              }, 0)}
+              disabled={true}
+            />
           </div>
         </div>
       </div>

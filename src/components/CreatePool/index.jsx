@@ -71,7 +71,7 @@ function CreatePool(props) {
 
     try {
       fetch('https://server-surveycapybara.dudeful.com/pools/new', {
-    //fetch('http://localhost:5000', {  
+        //fetch('http://localhost:5000', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ pool }),
@@ -81,6 +81,7 @@ function CreatePool(props) {
     } catch (error) {
       console.log(error);
     }
+    navigate('/code');
   };
   const handleButton = (event) => {
     event.preventDefault();
@@ -90,7 +91,7 @@ function CreatePool(props) {
         votes: 0,
         name: '',
         id: 'option_' + arr.length,
-      }
+      },
     ]);
   };
   const handleNumber = (event) => {
@@ -102,7 +103,11 @@ function CreatePool(props) {
     }
   };
 
-  const inputHandler = (event,i) => {
+  const inputHandler = (event, i) => {
+    console.log('inputs');
+    console.log(arr);
+    console.log(arr[i]);
+    console.log(i);
     arr[i].name = event.target.value;
   };
 
@@ -176,7 +181,10 @@ function CreatePool(props) {
               <InputOption
                 value={item.value}
                 id={'option-' + i}
-                inputHandler={(event, i) => inputHandler(event,i)}
+                inputHandler={(event) => {
+                  console.log(i);
+                  inputHandler(event, i);
+                }}
                 removeHandler={removeHandler}
               />
             );
