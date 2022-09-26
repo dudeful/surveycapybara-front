@@ -47,6 +47,10 @@
   flex-direction: row;
 }
 
+.messeges p {
+  font-size: 16px;
+}
+
 .sender-btn {
   border-radius: 25px;
   margin: 1em;
