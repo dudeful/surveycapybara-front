@@ -102,8 +102,8 @@ function CreatePool(props) {
     }
   };
 
-  const inputHandler = (event) => {
-    arr[Number(event.target.id.split('_')[1])].name = event.target.value;
+  const inputHandler = (event,i) => {
+    arr[i].name = event.target.value;
   };
 
   const checkboxHandler = () => {
@@ -176,7 +176,7 @@ function CreatePool(props) {
               <InputOption
                 value={item.value}
                 id={'option-' + i}
-                inputHandler={inputHandler}
+                inputHandler={(event, i) => inputHandler(event,i)}
                 removeHandler={removeHandler}
               />
             );
