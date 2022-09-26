@@ -23,12 +23,20 @@ body {
 
 header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   width: 100vw;
   height: 5vh;
   background-color: #5b28bf;
   position: fixed;
+}
+
+.img-logo-capybara {
+  width: 2rem;
+  margin: 0 1rem;
+}
+
+.box-header-n {
+  
 }
 
 img {

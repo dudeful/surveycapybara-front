@@ -4,9 +4,12 @@ const Header = () => {
   return (
     <header>
      
-     <img src={logoCapybara} alt="" />
+     <img  className='img-logo-capybara' src={logoCapybara} alt="" />
 
-      <p>cdslicuv</p>
+      <div className='box-header-n'>
+        <span></span>
+        <span></span>
+      </div>
     </header>
   );
 };
