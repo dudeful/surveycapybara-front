@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React, { useContext } from 'react';
 import Header from '../Header/Header';
 import SideBar from '../SideBar';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
-//import { SocketContext } from '../Context/SocketContext';
 import { API_URL } from '../Env';
 import './styles.css';
 

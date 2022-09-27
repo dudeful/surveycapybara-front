@@ -8,13 +8,14 @@ const SocketContext = createContext({});
 
 const SocketContextProvider = ({ children }) => {
   const { pool_id } = useParams();
-  const [socket, setSocket] = useState(new WebSocket(WS_URL, [pool_id]));
   const [user, setUser] = useContext(UserContext);
+  const [socket, setSocket] = useState(new WebSocket(WS_URL, [user.email]));
 
   socket.onopen = () => {
     try {
       const data = {
         user,
+        pool_id,
         code: 3,
         status: 'connection open',
       };

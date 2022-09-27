@@ -2,9 +2,11 @@
 import React, { useContext } from 'react';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
+import { useParams } from 'react-router-dom';
 import './style.css';
 
 function Sender(props) {
+  const { pool_id } = useParams();
   const socket = useContext(SocketContext);
   const [user, setUser] = useContext(UserContext);
   const message_text = document.getElementById('message_text');
@@ -13,6 +15,7 @@ function Sender(props) {
     try {
       const data = {
         user,
+        pool_id,
         code: 2,
         message: message_text.value,
       };
