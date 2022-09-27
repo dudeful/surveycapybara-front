@@ -39,7 +39,7 @@ function Pool(props) {
         );
         const data = await response.json();
         setPool(data.pool);
-        localStorage.setItem('ws-token', data.token.ws_token);
+        // localStorage.setItem('ws-token', data.token.ws_token);
 
         if (options[0]) {
           try {
