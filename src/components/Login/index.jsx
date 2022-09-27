@@ -16,6 +16,8 @@ function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(false);
+  const [labelemail, setEmailLabel] = useState('');
+  const [labelpass, setPassLabel] = useState('');
 
   const { pool_id } = useParams();
   const [user, setUser] = useContext(UserContext);
@@ -33,6 +35,25 @@ function Login(props) {
 
     const response = await fetch(`${API_URL}/users/login`, options);
     const data = await response.json();
+
+    setEmailLabel('');
+    setPassLabel('');
+
+    switch (data.error) {
+      case 'the email provided is not valid!':
+        setEmailLabel('Não foi encontrado esse email');
+        break;
+
+      case 'No user with this email has been found':
+        setEmailLabel('Não foi encontrado esse email');
+        break;
+
+      case 'wrong password':
+        setPassLabel('A senha está incorreta');
+        break;
+
+      default:
+    }
 
     if (data.isAuthenticated) {
       setUser(data.user);
@@ -80,6 +101,15 @@ function Login(props) {
               onChange={handleEmail}
             />
           </div>
+          <p className="text-[11px]">
+            {labelemail !== '' ? (
+              <label className="error" htmlFor={'login_email'}>
+                {labelemail}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
           <div className="input-box-password">
             <img src={IconPassword} alt="" />
             <input
@@ -91,6 +121,15 @@ function Login(props) {
               onChange={handlePassword}
             />
           </div>
+          <p className="text-[11px]">
+            {labelpass !== '' ? (
+              <label className="error" htmlFor={'login_password'}>
+                {labelpass}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
 
           <button type="button" className="btn-login" id="login_button" onClick={loginHandler}>
             <h3>LOGIN</h3>

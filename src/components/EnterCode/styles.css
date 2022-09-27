@@ -19,3 +19,8 @@
 .field-title{
     color: #080808 !important;
 }
+
+.code-btns{
+    display: flex;
+    justify-content: space-around;
+}

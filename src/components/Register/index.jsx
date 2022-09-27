@@ -19,10 +19,19 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(false);
+  const [labelemail, setEmailLabel] = useState('');
+  const [labelusername, setUsernameLabel] = useState('');
+  const [labelpass, setPassLabel] = useState('');
+  const [label, setLabel] =  useState('');
 
   const registerHandler = async () => {
     // const email = document.getElementById('register_email').value;
     // const password = document.getElementById('register_password').value;
+
+    setEmailLabel('');
+    setUsernameLabel('');
+    setPassLabel('');
+    setLabel(''); 
 
     const user = { email, password, username };
 
@@ -35,6 +44,27 @@ const Register = () => {
 
     const response = await fetch(`${API_URL}/users/register`, options);
     const data = await response.json();
+
+    console.log(data)
+    switch (data.error) {
+      case 'the email provided is not valid!':
+        setEmailLabel('Email inválido');
+        break;
+
+      case 'the username provided is not valid!':
+        setUsernameLabel('o Campo usuário inválido');
+        break;
+
+      case 'the password provided is not valid!':
+        setPassLabel(
+          'A senha deve conter no mínimo 1 letra maiscúla, 1 minúscula, 1 número, 1 caractere especial e tamanho 8'
+        );
+      case  'This email or username is already in use':
+          setLabel("Já existe um cadastro")
+        break;
+
+      default:
+    }
 
     if (data.isAuthenticated) {
       setUser(data.user);
@@ -88,6 +118,15 @@ const Register = () => {
               onChange={handleUsername}
             />
           </div>
+          <p className="text-[11px]">
+            {labelusername !== '' ? (
+              <label className="error" htmlFor={'register_username'}>
+                {labelusername}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
           <div className="input-box-email">
             <img src={IconEmail} alt="" />
             <input
@@ -99,6 +138,15 @@ const Register = () => {
               onChange={handleEmail}
             />
           </div>
+          <p className="text-[11px]">
+            {labelemail !== '' ? (
+              <label className="error" htmlFor={'register_email'}>
+                {labelemail}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
           <div className="input-box-password">
             <img src={IconPassword} alt="" />
             <input
@@ -110,6 +158,24 @@ const Register = () => {
               onChange={handlePassword}
             />
           </div>
+          <p className="text-[11px]">
+            {labelpass !== '' ? (
+              <label className="error" htmlFor={'register_password'}>
+                {labelpass}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
+          <p className="text-[11px]">
+            {label !== '' ? (
+              <label className="error" htmlFor={'register_eamil'}>
+                {label}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
 
           <button
             type="button"

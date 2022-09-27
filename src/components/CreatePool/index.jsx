@@ -9,6 +9,9 @@ function CreatePool(props) {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
   const [prot, setProt] = useState(false);
+  const [status, setStatus] = useState(false);
+  const [labelTitle, setLabelTitle] = useState('');
+  const [bool, setBool] = useState(false);
   const pool = {
     owner: user.email,
     name: user.username,
@@ -27,6 +30,7 @@ function CreatePool(props) {
     options: [],
   };
 
+  let status_titulo = '';
   //this function is to verify if the token is still valid, if it isn't then we redirect the user back to login screen
   const isTokenFresh = async () => {
     try {
@@ -55,8 +59,12 @@ function CreatePool(props) {
     },
   ]);
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    status_titulo = '';
+    setStatus(false);
+    setBool(false);
 
     pool.name = document.getElementById('title').value.trim();
     pool.positive_votes_per_voter = document.getElementById('numVotes').value;
@@ -65,33 +73,49 @@ function CreatePool(props) {
 
     const complete = arr.reduce((previusValor, currentValor) => {
       if (currentValor.name.trim() !== '' && previusValor) {
+        
         return true;
       } else {
+        setBool(true);
         return false;
       }
     }, true);
 
     if (complete) {
+     
       //const pass = document.getElementById('poolpass');
       if (pool.name === '' || pool.name === undefined) {
+        setStatus(true);
+        setLabelTitle('Campo "titulo" vazio.');
         return;
       }
     } else {
+      
       return;
     }
 
     try {
-      fetch(`${API_URL}/pools/new`, {
+      const response = await fetch(`${API_URL}/pools/new`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ pool }),
-      })
-        .then((responce) => responce)
-        .then((data) => data);
+      });
+      const data = await response.json();
+      switch (data.message){
+        case 'invalid pool name':
+          setLabelTitle('Titulo prescisa de 5 caracteres ou mais');
+          break;
+          
+        default:
+      }
+
+      if (data.error){
+        return;
+      }
+      navigate('/');
     } catch (error) {
       console.error(error);
     }
-    navigate('/');
   };
   const handleButton = (event) => {
     event.preventDefault();
@@ -164,6 +188,15 @@ function CreatePool(props) {
               placeholder="Titulo da Pesquisa"
             />
           </div>
+          <p className="text-[11px]">
+            {labelTitle !== '' ? (
+              <label className="error" htmlFor={'register_email'}>
+                {labelTitle}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
           <div className="input-form-box input-form-box-label">
             <label className="label-input" htmlFor="numVotes">
               N° de votos:
@@ -182,6 +215,7 @@ function CreatePool(props) {
               Esconder votos:
             </label>
             <input type="checkbox" name="secury" onChange={checkboxHandler} />
+            
           </div>
           {arr.map((item, i) => {
             return (
@@ -194,8 +228,12 @@ function CreatePool(props) {
                 }}
                 removeHandler={removeHandler}
               />
+              
             );
+            
           })}
+          {bool ? <label className="test">campo "opções" vazio, favor preencher</label> : ''}
+
           <div className="divButtons">
             <button className="bnt-forms asap" onClick={handleButton}>
               <strong>Adicionar Opção</strong>
