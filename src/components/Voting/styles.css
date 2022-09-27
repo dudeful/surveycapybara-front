@@ -111,6 +111,26 @@ h2 {
   justify-content: space-around;
   align-items: center;
 }
+.sharedlink {
+  display: flex;
+
+  align-items: center;
+}
+.links {
+  display: flex;
+  margin-left: 3em;
+  color: #8b58f0;
+}
+.copybtn {
+  border-radius: 5px;
+  margin: 1em;
+  background-color: #a9a9a9;
+  transition: all 0.2s ease-in-out;
+  height: 1.5em;
+  font-size: 1.5em;
+  width: 5em;
+  margin-left: 0.5em;
+}
 p {
   font-size: 2em;
 }

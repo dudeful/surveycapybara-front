@@ -31,6 +31,7 @@ function Voting(props) {
   };
 
   //console.log(props.pool);
+  const links = window.location.href;
 
   const votesAvailable = (avability) => {
     if (avability > 1) {
@@ -99,6 +100,21 @@ function Voting(props) {
               disabled={true}
             />
           </div>
+        </div>
+        <div className="sharedlink">
+          <p>Compartilhe o link de sua pesquisa: </p>
+          <p className="links" id="linking">
+            {' '}
+            {links}
+          </p>
+          <button
+            className="copybtn"
+            onClick={() => {
+              navigator.clipboard.writeText(links);
+            }}
+          >
+            copiar
+          </button>
         </div>
       </div>
     </>
