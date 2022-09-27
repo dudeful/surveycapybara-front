@@ -45,7 +45,6 @@ const EnterCode = () => {
       console.error(error);
     }
   };
-  console.log((label !== '') ? " error-input": "");
   return (
     <>
       <Header profile={user.username} />
@@ -56,7 +55,7 @@ const EnterCode = () => {
             <h2 className='field-title'>Digite um código</h2>
             <input
               id="codeField"
-              className={"input-code-enter" + (label !== '') ? " error-input": ""}
+              className={"input-code-enter"}
               type="text"
               placeholder="000000"
             />
