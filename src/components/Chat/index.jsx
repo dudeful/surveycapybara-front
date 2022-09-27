@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Message from './Message.jsx';
 import Sender from './Sender.jsx';
 

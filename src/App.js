@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UserContextProvider } from './components/Context/UserContext';
 import { SocketContextProvider } from './components/Context/SocketContext';
 import PoolForms from './components/PoolForms/';
