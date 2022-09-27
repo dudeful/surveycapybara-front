@@ -46,7 +46,7 @@ const EnterCode = () => {
     <>
       <Header profile={user.username} />
       <div className="page">
-        
+      <SideBar />
         <form className="box-form-code centrilize">
           <fieldset className="box-fieldset-enter-code">
             <h2 className='field-title'>Digite um código</h2>
@@ -57,6 +57,7 @@ const EnterCode = () => {
               placeholder="000000"
             />
             <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
+           
           </fieldset>
         </form>
       </div>
