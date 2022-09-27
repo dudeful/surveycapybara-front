@@ -14,7 +14,7 @@ const EnterCode = () => {
   const [labelEmail, setLabelEmail] = useState('');
 
   const navigate = useNavigate();
-  const buttonHandler = (event) => {
+  const buttonHandler = async (event) => {
     event.preventDefault();
     const pool = {
       id: document.getElementById('codeField').value.replace(/\s/g, ""),
@@ -32,11 +32,13 @@ const EnterCode = () => {
     const url = `${API_URL}/pools?id=${pool.id}`;
 
     try {
-      fetch(url)
-        .then((response) => {
-          response.json();
-        })
-        .then((data) => data);
+      const response = await fetch(url)
+      const data =  await response.json();
+      console.log(data.error)
+      if (data.error) {
+        setLabel("Código inválido!");
+        return 
+      }
 
       navigate(`/pool/${pool.id}`, {
         //state: { id: pool.id, password: pool.password },
