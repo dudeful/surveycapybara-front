@@ -47,13 +47,13 @@ const EnterCode = () => {
       <div className="page">
         <SideBar />
         <form className="box-form-code centrilize">
-          <h2> Surveycabybara</h2>
-          <fieldset className="box-fieldset-code">
+          <fieldset className="box-fieldset-enter-code">
+            <h2>Digite um código</h2>
             <input
               id="codeField"
               className="input-code-enter"
               type="text"
-              placeholder="Enter code"
+              placeholder="000000"
             />
             <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
           </fieldset>
