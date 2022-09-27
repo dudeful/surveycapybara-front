@@ -108,6 +108,15 @@ const Register = () => {
               value={username}
               onChange={handleUsername}
             />
+            <p className="text-[11px]">
+              {labelusername !== '' ? (
+                <label className="error" htmlFor={'register_username'}>
+                  {labelusername}
+                </label>
+              ) : (
+                <></>
+              )}
+            </p>
           </div>
           <div className="input-box-email">
             <img src={IconEmail} alt="" />
@@ -119,6 +128,15 @@ const Register = () => {
               value={email}
               onChange={handleEmail}
             />
+            <p className="text-[11px]">
+              {labelemail !== '' ? (
+                <label className="error" htmlFor={'register_email'}>
+                  {labelemail}
+                </label>
+              ) : (
+                <></>
+              )}
+            </p>
           </div>
           <div className="input-box-password">
             <img src={IconPassword} alt="" />
@@ -130,6 +148,15 @@ const Register = () => {
               value={password}
               onChange={handlePassword}
             />
+            <p className="text-[11px]">
+              {labelpass !== '' ? (
+                <label className="error" htmlFor={'register_password'}>
+                  {labelpass}
+                </label>
+              ) : (
+                <></>
+              )}
+            </p>
           </div>
 
           <button
