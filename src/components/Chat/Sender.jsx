@@ -7,7 +7,7 @@ import './style.css';
 function Sender(props) {
   const socket = useContext(SocketContext);
   const [user, setUser] = useContext(UserContext);
-  console.log("user message: ", user)
+  //console.log("user message: ", user)
   const message_text = document.getElementById('message_text');
 
   const sendMessage = () => {

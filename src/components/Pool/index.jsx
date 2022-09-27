@@ -7,11 +7,8 @@ import Voting from '../Voting';
 import Chat from '../Chat';
 import SideBar from '../SideBar';
 import Header from '../Header/Header';
+import { API_URL, WS_URL } from '../Env';
 import './styles.css';
-
-const API_URL = 'https://server-surveycapybara.dudeful.com';
-
-//const API_URL = 'http://localhost:5000';
 
 function Pool(props) {
   // ea78cc88
@@ -26,32 +23,26 @@ function Pool(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log("user: ", user)
-  console.log("Pool Messages");
-  console.log(messages);
-
   useEffect(() => {
     setPoolAuth(location.state);
 
     const fetchPool = async () => {
       try {
         const response = await fetch(
-          `${API_URL}/pools?id=${pool_id}&password=${location.state?.password || ""}`,
+          `${API_URL}/pools?id=${pool_id}&password=${location.state?.password || ''}`,
           {
             credentials: 'include',
           }
         );
         const data = await response.json();
         setPool(data.pool);
-        //console.log("fetchPool data");
-        //console.log(data);
       } catch (error) {
         console.error(error);
       }
     };
 
     //this function is to verify if the token is still valid, if it isn't then we redirect the user back to login screen
-    const isTokenFresh = async () => {
+    /* const isTokenFresh = async () => {
       try {
         const response = await fetch(`${API_URL}/users/refresh`, { credentials: 'include' });
         const token = await response.json();
@@ -67,17 +58,15 @@ function Pool(props) {
         console.error('<<<ERROR WHILE REFRESHING TOKEN>>>');
         console.error(error);
       }
-    };
+    }; */
 
-    isTokenFresh();
+    //isTokenFresh();
     fetchPool();
   }, [pool_id]);
 
   useEffect(() => {
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      //console.log("socket.onmessage data");
-      //console.log(data);
 
       try {
         switch (data.code) {
@@ -90,8 +79,8 @@ function Pool(props) {
               user: { username: data.user.username, email: data.user.email },
               body: data.body,
             };
-            setMessages((prevMessages) => [...prevMessages, {message:newMessage}]);
-            console.log(messages);
+            setMessages((prevMessages) => [...prevMessages, { message: newMessage }]);
+            //console.log(messages);
             break;
           case 3:
             setOptions(data.options);
@@ -105,12 +94,9 @@ function Pool(props) {
         console.error(error);
       }
     };
-  }, [socket.onmessage]);
+  }, [location.state.id]);
 
   const renderingPage = (owner) => {
-    ////console.log("renderingPage pool")
-    ////console.log(pool);
-    // guarda (bail out)
     if (pool === undefined) {
       return <div>loading...</div>;
     }
@@ -122,23 +108,19 @@ function Pool(props) {
       description: pool.description,
       visible: pool.visible_vote,
     };
-    //console.log(pool);
-    //console.log("Pool options")
-    //console.log(options)
     return (
       <>
         <Voting pool={poolData} options={options} />
         <Chat messages={messages} />
       </>
     );
-
   };
 
   return (
     <>
       <div className="main-page">
         <SideBar />
-      <Header profile = {user.username} />
+        <Header profile={user.username} />
         {renderingPage(user.email)}
       </div>
     </>

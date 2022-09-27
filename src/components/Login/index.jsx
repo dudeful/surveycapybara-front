@@ -9,10 +9,8 @@ import IconProfilePlus from '../../img/icon_profile_plus.png';
 import IconEmail from '../../img/icon_email.png';
 import IconPassword from '../../img/icon_password.png';
 import IconLogin from '../../img/icon_login.png';
+import { API_URL } from '../Env';
 import './styles.css';
-
-const API_URL = 'https://server-surveycapybara.dudeful.com';
-//const API_URL = 'http://localhost:5000';
 
 function Login(props) {
   const [email, setEmail] = useState('');
@@ -24,7 +22,6 @@ function Login(props) {
   const navigate = useNavigate();
 
   const loginHandler = async () => {
-
     const user = { email, password };
 
     const options = {
@@ -37,7 +34,7 @@ function Login(props) {
     const response = await fetch(`${API_URL}/users/login`, options);
     const data = await response.json();
 
-    console.log(data);
+    //console.log(data);
 
     if (data.isAuthenticated) {
       setUser(data.user);

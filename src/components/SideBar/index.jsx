@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useContext } from 'react';
+//import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 //import { Navigation } from './Navigation';
-import { UserContext } from '../Context/UserContext';
+//import { UserContext } from '../Context/UserContext';
+import { API_URL } from '../Env';
 import './styles.css';
 
 function SideBar(props) {
   const navigation = useNavigate();
   const [itens, setItens] = useState([]);
-  const [user, setUser] = useContext(UserContext);
+  //const [user, setUser] = useContext(UserContext);
   useEffect(() => {
     async function fetchItens() {
       try {
-        const publicPools = await fetch('https://server-surveycapybara.dudeful.com/pools/public')
-          //const publicPools = await fetch('http://localhost:5000/pools/public')
+        const publicPools = await fetch(`${API_URL}/pools/public`)
           .then((response) => response.json())
           .then((data) => data.pools);
         setItens((s) => [...publicPools]);
@@ -26,20 +27,28 @@ function SideBar(props) {
   /*useEffect(() => {
     async function fetchItens() {
       try {
-        const url = 'https://server-surveycapybara.dudeful.com/pools/private' + (user.email !== '' ? '?user=' + user.email : '');
+        //console.log(user);
+        if (user.email === null) {
+          return;
+        }
+        const url = `${API_URL}/pools/private${user.email ? '?email=' + user.email : ''}`;
         const myPools = await fetch(url)
           .then((response) => response.json())
           .then((data) => data.pools);
-        setItens((s) => [s, ...myPools]);
+
+        if (Array.isArray(myPools)) {
+          setItens((s) => [...s, ...myPools]);
+        }
       } catch (error) {
         console.log(error);
       }
     }
+
     fetchItens();
-  }, itens);
-*/
+  }, []);*/
+
   const funcbutton = (props) => {
-    navigation(`/pool/${props.href}`);
+    navigation(`/pool/${props}`, { state: { id: props } });
     window.location.reload();
   };
 
@@ -47,7 +56,7 @@ function SideBar(props) {
     return (
       <button
         onClick={() => {
-          funcbutton(props);
+          funcbutton(props.href);
         }}
         className="navigation"
       >
@@ -59,7 +68,7 @@ function SideBar(props) {
   return (
     <div className="side-bar">
       {itens.map((item, i) => {
-        return <ButtonNavigation href={item.id} name={item.name} key={item.id} />;
+        return <ButtonNavigation href={item.id} name={item.name} key={i} />;
       })}
       <Link className="navigation-create" to="/create-pool">
         +
@@ -69,7 +78,3 @@ function SideBar(props) {
 }
 
 export default SideBar;
-
-
-
-
