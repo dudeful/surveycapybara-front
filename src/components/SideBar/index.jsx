@@ -10,17 +10,25 @@ function SideBar(props) {
   useEffect(() => {
     async function fetchItens() {
       try {
-        const publicPools = await fetch(`${API_URL}/pools/public`)
+        if (props.email !== undefined){
+          const publicPools = await fetch(`${API_URL}/pools/owned?email=${props.email}`)
           .then((response) => response.json())
           .then((data) => data.pools);
           if (publicPools !== undefined)
             setItens((s) => [...publicPools]);
+        }else{
+          const publicPools = await fetch(`${API_URL}/pools/public`)
+          .then((response) => response.json())
+          .then((data) => data.pools);
+          if (publicPools !== undefined)
+            setItens((s) => [...publicPools]);
+        }
       } catch (error) {
         console.error(error);
       }
     }
     fetchItens();
-  }, []);
+  }, [props]);
 
   const ButtonNavigation = (props) => {
     return (

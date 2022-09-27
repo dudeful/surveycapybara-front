@@ -11,7 +11,8 @@ import './styles.css';
 const EnterCode = () => {
   const [user, setUser] = useContext(UserContext);
   const [label, setLabel] = useState('');
-  const [labelEmail, setLabelEmail] = useState('');
+  const [email, setEmail] = useState(false);
+  const [text, setText] = useState("Mostrar minhas Pesquisas");
 
   const navigate = useNavigate();
   const buttonHandler = (event) => {
@@ -47,14 +48,20 @@ const EnterCode = () => {
     }
   };
 
-  const poolHandler = () =>{
-    
+  const poolHandler = (event) =>{
+    event.preventDefault();
+    setEmail(!email);
+    if (email){
+      setText("Todas  Pesquisas");
+    }else{
+      setText("Minhas Pesquisas");
+    }
   }
   return (
     <>
       <Header profile={user.username} />
       <div className="page">
-      <SideBar />
+      {(email) ? <SideBar email={user.email} /> : <SideBar />}
         <form className="box-form-code centrilize">
           <fieldset className="box-fieldset-enter-code">
             <h2 className='field-title'>Digite um código</h2>
@@ -66,7 +73,7 @@ const EnterCode = () => {
             />
             <p className="text-[11px]">{label !== '' ? <label className="error" htmlFor={codeField}>{label}</label>:<></>}</p>
             <div className='code-btns'>
-              {(user.username !== 'anonymous' && user.username !== undefined)?<button className='input-code-btn' onClick={poolHandler}>Minhas Pesquisas</button>:<></>}
+              {(user.username !== 'anonymous' && user.username !== undefined) ? <button className='input-code-btn' onClick={poolHandler}>{text}</button>:<></>}
               <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
             </div>
             
