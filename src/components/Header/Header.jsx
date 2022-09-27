@@ -30,7 +30,9 @@ const Header = (props) => {
           <strong>{profile ? profile : 'login'}</strong>
         </button>
         <button className="sign-up-or-in" onClick={registerAndSignHandler}>
-          <strong>{profile === undefined ? 'Register' : 'sign-out'}</strong>
+          <strong>
+            {profile === undefined ? 'register' : profile === 'anonymous' ? 'sign-in' : 'Log-out'}
+          </strong>
         </button>
       </div>
     </header>
