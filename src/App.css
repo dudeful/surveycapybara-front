@@ -52,12 +52,8 @@ header {
   padding: 0 1rem;
 }
 
-<<<<<<< HEAD
 .profile-or-login,
 .sign-up-or-in {
-=======
-.profile-or-login, .sign-up-or-in{
->>>>>>> cfab7db3dedd7398c653e5fe8e3bb3d4420b93f4
   background-color: #5b28bf;
   color: #f1f1f1;
   border: none;
