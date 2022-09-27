@@ -6,7 +6,6 @@ const Header = (props) => {
   const profile = props.profile;
   const navigate = useNavigate();
   const registerAndSignHandler = () => {
-    console.log((profile === undefined || profile === 'anonymous'));
     if (profile === undefined || profile === 'anonymous') {
       navigate('/register');
     } else {

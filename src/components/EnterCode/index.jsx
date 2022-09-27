@@ -14,11 +14,12 @@ const EnterCode = () => {
   const buttonHandler = (event) => {
     event.preventDefault();
     const pool = {
-      id: document.getElementById('codeField').value,
+      id: document.getElementById('codeField').value.replace(/\s/g, ""),
       //password: document.getElementById('password').value,
     };
+    const re = /[0-9A-Fa-f]{8}/g;
 
-    if (pool.id === '') {
+    if (!(re.test(pool.id))) {
       return;
     }
 
@@ -45,7 +46,7 @@ const EnterCode = () => {
     <>
       <Header profile={user.username} />
       <div className="page">
-        <SideBar />
+        
         <form className="box-form-code centrilize">
           <fieldset className="box-fieldset-enter-code">
             <h2 className='field-title'>Digite um código</h2>
