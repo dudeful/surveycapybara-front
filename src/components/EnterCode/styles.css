@@ -16,6 +16,6 @@
     margin-top: 20%;
 }
 
-h2{
-    color: #080808;
+.field-title{
+    color: #080808 !important;
 }

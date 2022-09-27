@@ -48,7 +48,7 @@ const EnterCode = () => {
         <SideBar />
         <form className="box-form-code centrilize">
           <fieldset className="box-fieldset-enter-code">
-            <h2>Digite um código</h2>
+            <h2 className='field-title'>Digite um código</h2>
             <input
               id="codeField"
               className="input-code-enter"
