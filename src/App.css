@@ -205,4 +205,5 @@ input:focus {
 
 .error{
   color: red;
+  align-self: error;
 }
