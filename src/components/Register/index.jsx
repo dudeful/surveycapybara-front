@@ -81,7 +81,7 @@ const Register = () => {
             <img src={IconProfile} alt="" />
             <input
               className="input-username"
-              placeholder="Your  username"
+              placeholder="Seu nome de Usuário"
               type="text"
               id="register_username"
               value={username}
@@ -92,7 +92,7 @@ const Register = () => {
             <img src={IconEmail} alt="" />
             <input
               className="input-email"
-              placeholder="Your  email"
+              placeholder="Seu email"
               type="email"
               id="register_email"
               value={email}
@@ -103,7 +103,7 @@ const Register = () => {
             <img src={IconPassword} alt="" />
             <input
               className="input-password"
-              placeholder="Your password"
+              placeholder="Sua Senha"
               type="password"
               id="register_password"
               value={password}
