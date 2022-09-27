@@ -61,12 +61,12 @@ function Login(props) {
           <legend className="box-login-modal">
             <div className="box-modal-login">
               <img src={IconProfile} alt="" />
-              <input className="input-btn-login" type="button" value="LOGIN" />
+              <input className="input-btn-login" type="button" value="ENTRAR" />
             </div>
 
             <div className="box-modal-register" value={status} onClick={handleStatus}>
               <img src={IconProfilePlus} alt="" />
-              <input className="input-btn-register" type="button" value="REGISTER" />
+              <input className="input-btn-register" type="button" value="REGISTRAR" />
             </div>
           </legend>
           <div className="input-box-email">
