@@ -88,7 +88,7 @@ function Voting(props) {
               navigator.clipboard.writeText(links);
             }}
           >
-            Copiar Link da Pesquisa
+            Link
           </button>
         </div>
         {display(props.pool.positive_votes_per_voter === count)}
