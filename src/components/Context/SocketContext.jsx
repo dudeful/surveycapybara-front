@@ -9,7 +9,7 @@ const SocketContext = createContext({});
 const SocketContextProvider = ({ children }) => {
   const { pool_id } = useParams();
   const [user, setUser] = useContext(UserContext);
-  const [socket, setSocket] = useState(new WebSocket(WS_URL, [user.email]));
+  const [socket, setSocket] = useState(new WebSocket(WS_URL, ['wsToken']));
 
   socket.onopen = () => {
     try {

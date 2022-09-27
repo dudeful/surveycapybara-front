@@ -26,14 +26,20 @@ function Pool(props) {
 
     const fetchPool = async () => {
       try {
+        const wsToken = localStorage.getItem('ws-token');
+        console.log(wsToken);
+
         const response = await fetch(
-          `${API_URL}/pools?id=${pool_id}&password=${location.state?.password || ''}`,
+          `${API_URL}/pools?id=${pool_id}&wsToken=${wsToken}&password=${
+            location.state?.password || ''
+          }`,
           {
             credentials: 'include',
           }
         );
         const data = await response.json();
         setPool(data.pool);
+        localStorage.setItem('ws-token', data.token.ws_token);
 
         if (options[0]) {
           try {

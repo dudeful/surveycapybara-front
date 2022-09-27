@@ -10,19 +10,19 @@ import './styles.css';
 
 const EnterCode = () => {
   const [user, setUser] = useContext(UserContext);
-  const [label, setLabel] = useState('')
-
+  const [label, setLabel] = useState('');
   const navigate = useNavigate();
+
   const buttonHandler = (event) => {
     event.preventDefault();
     const pool = {
-      id: document.getElementById('codeField').value.replace(/\s/g, ""),
+      id: document.getElementById('codeField').value.replace(/\s/g, ''),
       //password: document.getElementById('password').value,
     };
     const re = /[0-9A-Fa-f]{8}/g;
 
-    if (!(re.test(pool.id))) {
-      setLabel("Código inválido!");
+    if (!re.test(pool.id)) {
+      setLabel('Código inválido!');
       return;
     }
 
@@ -49,19 +49,21 @@ const EnterCode = () => {
     <>
       <Header profile={user.username} />
       <div className="page">
-      <SideBar />
+        <SideBar />
         <form className="box-form-code centrilize">
           <fieldset className="box-fieldset-enter-code">
-            <h2 className='field-title'>Digite um código</h2>
-            <input
-              id="codeField"
-              className={"input-code-enter"}
-              type="text"
-              placeholder="000000"
-            />
-            <p className="text-[11px]">{label !== '' ? <label className="error" htmlFor={codeField}>{label}</label>:<></>}</p>
+            <h2 className="field-title">Digite um código</h2>
+            <input id="codeField" className={'input-code-enter'} type="text" placeholder="000000" />
+            <p className="text-[11px]">
+              {label !== '' ? (
+                <label className="error" htmlFor={codeField}>
+                  {label}
+                </label>
+              ) : (
+                <></>
+              )}
+            </p>
             <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
-            
           </fieldset>
         </form>
       </div>

@@ -14,15 +14,20 @@ function Voting(props) {
   const [user, setUser] = useContext(UserContext);
   const [count, setCount] = useState(0);
 
-  useEffect(()=>{setCount(0)},[pool_id])
+  useEffect(() => {
+    setCount(0);
+  }, [pool_id]);
 
   const castVote = (e) => {
     try {
+      const ws_token = localStorage.getItem('ws-token');
+
       if (count < props.pool.positive_votes_per_voter) {
         setCount(count + 1);
         const data = {
           user,
           pool_id,
+          ws_token,
           code: 1,
           vote: e.target.id,
         };

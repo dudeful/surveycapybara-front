@@ -10,10 +10,10 @@ function SideBar(props) {
   useEffect(() => {
     async function fetchItens() {
       try {
-        const publicPools = await fetch(`${API_URL}/pools/public`)
-          .then((response) => response.json())
-          .then((data) => data.pools);
-        setItens((s) => [...publicPools]);
+        const response = await fetch(`${API_URL}/pools/public`);
+        const data = await response.json();
+
+        setItens(() => [...data.pools]);
       } catch (error) {
         console.error(error);
       }

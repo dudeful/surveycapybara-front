@@ -188,6 +188,7 @@ function CreatePool(props) {
               <InputOption
                 value={item.value}
                 id={'option-' + i}
+                key={'option-' + i}
                 inputHandler={(event) => {
                   inputHandler(event, i);
                 }}
