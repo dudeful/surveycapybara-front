@@ -69,12 +69,12 @@ const Register = () => {
           <legend className="box-modal">
             <div className="box-modal-l-login" value={status} onClick={handleStatus}>
               <img src={IconProfile} alt="" />
-              <input className="input-btn-login" type="button" value="LOGIN" />
+              <input className="input-btn-login" type="button" value="ENTRAR" />
             </div>
 
             <div className="box-modal-r-register">
               <img src={IconProfilePlus} alt="" />
-              <input className="input-btn-register" type="button" value="REGISTER" />
+              <input className="input-btn-register" type="button" value="REGISTRAR" />
             </div>
           </legend>
           <div className="input-box-username">
