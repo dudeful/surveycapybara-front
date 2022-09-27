@@ -1,7 +1,6 @@
 //import React, { useState, useEffect, useContext } from 'react';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-//import { Navigation } from './Navigation';
 //import { UserContext } from '../Context/UserContext';
 import { API_URL } from '../Env';
 import './styles.css';
@@ -48,7 +47,6 @@ function SideBar(props) {
 
   const funcbutton = (props) => {
     navigation(`/pool/${props}`, { state: { id: props } });
-    // window.location.reload();
   };
   const ButtonNavigation = (props) => {
     return (
