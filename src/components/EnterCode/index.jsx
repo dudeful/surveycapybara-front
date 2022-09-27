@@ -10,7 +10,8 @@ import './styles.css';
 
 const EnterCode = () => {
   const [user, setUser] = useContext(UserContext);
-  const [label, setLabel] = useState('')
+  const [label, setLabel] = useState('');
+  const [labelEmail, setLabelEmail] = useState('');
 
   const navigate = useNavigate();
   const buttonHandler = (event) => {

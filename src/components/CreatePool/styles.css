@@ -39,7 +39,7 @@
   padding-left: 2vw;
 }
 
-.input-form:focus{
+.input-form:focus {
   border: #5b28bf solid 2px;
 }
 
@@ -86,8 +86,17 @@
   margin-left: 1em;
 }
 
-.removeInput:hover{
+.removeInput:hover {
   background-color: #5b28bf;
   color: #f1efe5;
   border: 1px solid #f1efe5;
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  margin-top: -0.5em;
+  margin-bottom: 0.5em;
+  color: red;
 }

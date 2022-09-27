@@ -56,7 +56,7 @@ function Voting(props) {
       return (
         <BarChart width={730} height={250} data={props.options}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="id" />
+          <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
           <Legend />

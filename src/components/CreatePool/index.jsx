@@ -10,7 +10,7 @@ function CreatePool(props) {
   const [user, setUser] = useContext(UserContext);
   const [prot, setProt] = useState(false);
   const [status, setStatus] = useState(false);
-  const [bool,setBool] =  useState(false)
+  const [bool, setBool] = useState(false);
   const pool = {
     owner: user.email,
     name: user.username,
@@ -29,6 +29,8 @@ function CreatePool(props) {
     options: [],
   };
 
+  //console.log(user);
+  let status_titulo = '';
   //this function is to verify if the token is still valid, if it isn't then we redirect the user back to login screen
   const isTokenFresh = async () => {
     try {
@@ -60,6 +62,9 @@ function CreatePool(props) {
   const handleSubmit = (event) => {
 
     event.preventDefault();
+    status_titulo = '';
+    setStatus(false);
+    setBool(false);
 
     pool.name = document.getElementById('title').value.trim();
     pool.positive_votes_per_voter = document.getElementById('numVotes').value;
@@ -71,7 +76,7 @@ function CreatePool(props) {
         
         return true;
       } else {
-        setBool(true)
+        setBool(true);
         return false;
       }
     }, true);
@@ -80,7 +85,7 @@ function CreatePool(props) {
      
       //const pass = document.getElementById('poolpass');
       if (pool.name === '' || pool.name === undefined) {
-        setStatus(true)
+        setStatus(true);
         return;
       }
     } else {
@@ -97,7 +102,7 @@ function CreatePool(props) {
         .then((responce) => responce)
         .then((data) => data);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
     navigate('/');
   };
@@ -173,6 +178,10 @@ function CreatePool(props) {
             />
             {status ? <label className='test'>preencha o campo</label> : ""}
           </div>
+          {status
+            ? ((status_titulo = 'Campo "titulo" vazio.'),
+              (<label className="test">{status_titulo}</label>))
+            : ((status_titulo = ''), (<label className="test"></label>))}
           <div className="input-form-box input-form-box-label">
             <label className="label-input" htmlFor="numVotes">
               N° de votos:
@@ -199,6 +208,7 @@ function CreatePool(props) {
                 value={item.value}
                 id={'option-' + i}
                 inputHandler={(event) => {
+                  console.log(i);
                   inputHandler(event, i);
                 }}
                 removeHandler={removeHandler}
@@ -207,8 +217,8 @@ function CreatePool(props) {
             );
             
           })}
-          {bool ? <label className='test'>preencha o campo das opções</label> : ""}
-            
+          {bool ? <label className="test">campo "opções" vazio, favor preencher</label> : ''}
+
           <div className="divButtons">
             <button className="bnt-forms asap" onClick={handleButton}>
               <strong>Adicionar Opção</strong>
