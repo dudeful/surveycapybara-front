@@ -46,6 +46,10 @@ const EnterCode = () => {
       console.error(error);
     }
   };
+
+  const poolHandler = () =>{
+    
+  }
   return (
     <>
       <Header profile={user.username} />
@@ -61,7 +65,10 @@ const EnterCode = () => {
               placeholder="000000"
             />
             <p className="text-[11px]">{label !== '' ? <label className="error" htmlFor={codeField}>{label}</label>:<></>}</p>
-            <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
+            <div className='code-btns'>
+              {(user.username !== 'anonymous' && user.username !== undefined)?<button className='input-code-btn' onClick={poolHandler}>Minhas Pesquisas</button>:<></>}
+              <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
+            </div>
             
           </fieldset>
         </form>

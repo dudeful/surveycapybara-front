@@ -76,7 +76,6 @@ function Voting(props) {
           <p>Compartilhe o link de sua pesquisa: </p>
           <p className="links" id="linking">
             {' '}
-            {links}
           </p>
           <button
             className="copybtn"
@@ -84,7 +83,7 @@ function Voting(props) {
               navigator.clipboard.writeText(links);
             }}
           >
-            copiar
+            Copiar Link da Pesquisa
           </button>
         </div>
         {display(props.pool.positive_votes_per_voter === count)}
