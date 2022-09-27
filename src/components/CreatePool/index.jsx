@@ -21,7 +21,7 @@ function CreatePool(props) {
     negative_votes_threshold: 0,
     weighted_vote: false,
     visible_vote: true,
-    private_pool: prot,
+    private_pool: false,
     pool_password: null,
     voting_time: 1000,
     registered_pool: false,
