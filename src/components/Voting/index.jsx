@@ -83,7 +83,21 @@ function Voting(props) {
     <>
       <div className="voting">
         <h2>{props.pool.title}</h2>
-        <p>{props.pool.description}</p>
+        <div className="sharedlink">
+          <p>Compartilhe o link de sua pesquisa: </p>
+          <p className="links" id="linking">
+            {' '}
+            {links}
+          </p>
+          <button
+            className="copybtn"
+            onClick={() => {
+              navigator.clipboard.writeText(links);
+            }}
+          >
+            copiar
+          </button>
+        </div>
         {display(props.pool.posite_votes === count)}
         <div className="votes-display">
           <div>{votesAvailable(props.pool.posite_votes - count)}</div>
@@ -100,21 +114,6 @@ function Voting(props) {
               disabled={true}
             />
           </div>
-        </div>
-        <div className="sharedlink">
-          <p>Compartilhe o link de sua pesquisa: </p>
-          <p className="links" id="linking">
-            {' '}
-            {links}
-          </p>
-          <button
-            className="copybtn"
-            onClick={() => {
-              navigator.clipboard.writeText(links);
-            }}
-          >
-            copiar
-          </button>
         </div>
       </div>
     </>
