@@ -18,7 +18,7 @@ function SideBar(props) {
           .then((data) => data.pools);
         setItens((s) => [...publicPools]);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
     fetchItens();
@@ -27,7 +27,6 @@ function SideBar(props) {
   /*useEffect(() => {
     async function fetchItens() {
       try {
-        //console.log(user);
         if (user.email === null) {
           return;
         }
@@ -40,7 +39,7 @@ function SideBar(props) {
           setItens((s) => [...s, ...myPools]);
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
@@ -49,10 +48,8 @@ function SideBar(props) {
 
   const funcbutton = (props) => {
     navigation(`/pool/${props}`, { state: { id: props } });
-    window.location.reload();
+    // window.location.reload();
   };
-  console.log('aqui');
-  console.log(props);
   const ButtonNavigation = (props) => {
     return (
       <button

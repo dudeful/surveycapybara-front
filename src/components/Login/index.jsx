@@ -34,8 +34,6 @@ function Login(props) {
     const response = await fetch(`${API_URL}/users/login`, options);
     const data = await response.json();
 
-    //console.log(data);
-
     if (data.isAuthenticated) {
       setUser(data.user);
       navigate(`/code`);

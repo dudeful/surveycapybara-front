@@ -35,12 +35,10 @@ const Register = () => {
 
     const response = await fetch(`${API_URL}/users/register`, options);
     const data = await response.json();
-    //console.log(data);
 
     if (data.isAuthenticated) {
       setUser(data.user);
       //navigate(`/pool/${pool_id}`);
-      console.log(user);
       navigate(`/code`);
       //navigate(-1);
     }
@@ -48,23 +46,19 @@ const Register = () => {
 
   const handleStatus = (e) => {
     setStatus(true);
-    //console.log(status);
     navigate(`/login`);
   };
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
-    //console.log(username);
   };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    //console.log(email);
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    //console.log(password);
   };
 
   return (

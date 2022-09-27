@@ -80,7 +80,6 @@ function Pool(props) {
               body: data.body,
             };
             setMessages((prevMessages) => [...prevMessages, { message: newMessage }]);
-            //console.log(messages);
             break;
           case 3:
             setOptions(data.options);
