@@ -24,14 +24,15 @@
 }
 
 .navigation {
-  border-radius: 50px 0px 0px 50px;
-  background-color: #7c7373;
-  color: #d1d1d1;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #080808;
+  color: #f1f1f1;
   font-size: 2em;
-  padding-left: 1em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
+  margin-right: 1em;
+  justify-self: center;
   text-decoration: none;
 }
 
@@ -47,4 +48,9 @@
   margin-right: auto;
   margin-left: auto;
   text-decoration: none;
+}
+
+.navigation:hover, .navigation-create:hover{
+  background-color: #f1f1f1;
+  color: #080808;
 }
