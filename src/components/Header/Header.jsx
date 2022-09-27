@@ -31,7 +31,7 @@ const Header = (props) => {
 
       <div className="box-header-n">
         <button className="profile-or-login" onClick={loginHandler}>
-          <strong>{profile ? profile : 'login'}</strong>
+          <strong>{(profile !== 'anonymous') ? profile : 'login'}</strong>
         </button>
         <button className="sign-up-or-in" onClick={registerAndSignHandler}>
           <strong>
