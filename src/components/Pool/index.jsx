@@ -7,12 +7,10 @@ import Voting from '../Voting';
 import Chat from '../Chat';
 import SideBar from '../SideBar';
 import Header from '../Header/Header';
-import { API_URL, WS_URL } from '../Env';
+import { API_URL } from '../Env';
 import './styles.css';
 
 function Pool(props) {
-  // ea78cc88
-  // 5b770395
   const { pool_id } = useParams();
   const socket = useContext(SocketContext);
   const [pool, setPool] = useState();
@@ -36,6 +34,25 @@ function Pool(props) {
         );
         const data = await response.json();
         setPool(data.pool);
+
+        if (options[0]) {
+          try {
+            const data = {
+              user,
+              pool_id,
+              code: 3,
+              status: 'changing pools',
+            };
+
+            socket.send(JSON.stringify(data));
+          } catch (error) {
+            console.error('<<<ERROR WHILE CHANGING POOLS>>>');
+            console.error(error);
+          }
+        }
+
+        // setOptions(data.options);
+        // setMessages(data.messages || []);
       } catch (error) {
         console.error(error);
       }
@@ -93,34 +110,20 @@ function Pool(props) {
         console.error(error);
       }
     };
-  }, [location.state.id]);
+  }, [socket.onmessage]);
 
-  const renderingPage = (owner) => {
-    if (pool === undefined) {
-      return <div>loading...</div>;
-    }
-
-    const poolData = {
-      pool_ownership: pool.owner === owner,
-      title: pool.name,
-      posite_votes: pool.positive_votes_per_voter,
-      description: pool.description,
-      visible: pool.visible_vote,
-    };
-    return (
-      <>
-        <Voting pool={poolData} options={options} />
-        <Chat messages={messages} />
-      </>
-    );
-  };
+  if (pool === undefined) {
+    return <div>loading...</div>;
+  }
 
   return (
     <>
       <div className="main-page">
         <SideBar />
         <Header profile={user.username} />
-        {renderingPage(user.email)}
+
+        <Voting pool={pool} options={options} />
+        <Chat messages={messages} />
       </div>
     </>
   );

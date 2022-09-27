@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Message from './Message.jsx';
 import Sender from './Sender.jsx';
 
@@ -16,8 +16,8 @@ function Chat(props) {
   return (
     <div id="chat" className="chat">
       <div id="messageContainer" className="messageContainer">
-        {props.messages.map((message) => {
-          return <Message key={message.id} message={message.message} />;
+        {props.messages.map((data) => {
+          return <Message key={data.message.id} message={data.message} />;
         })}
         <div ref={scrollToMessage}></div>
       </div>

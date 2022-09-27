@@ -21,14 +21,11 @@ function SideBar(props) {
     fetchItens();
   }, []);
 
-  const funcbutton = (props) => {
-    navigation(`/pool/${props}`, { state: { id: props } });
-  };
   const ButtonNavigation = (props) => {
     return (
       <button
         onClick={() => {
-          funcbutton(props.href);
+          navigation(`/pool/${props.href}`, { state: { id: props.href } });
         }}
         className="navigation"
       >
