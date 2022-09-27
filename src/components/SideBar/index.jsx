@@ -13,7 +13,8 @@ function SideBar(props) {
         const publicPools = await fetch(`${API_URL}/pools/public`)
           .then((response) => response.json())
           .then((data) => data.pools);
-        setItens((s) => [...publicPools]);
+          if (publicPools !== undefined)
+            setItens((s) => [...publicPools]);
       } catch (error) {
         console.error(error);
       }
