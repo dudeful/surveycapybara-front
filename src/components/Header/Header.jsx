@@ -6,7 +6,7 @@ const Header = (props) => {
   const profile = props.profile;
   const navigate = useNavigate();
   const registerAndSignHandler = () => {
-    if (profile === undefined) {
+    if (profile === undefined || profile === 'anonymous') {
       navigate('/register');
     } else {
       navigate('/login');
@@ -14,24 +14,28 @@ const Header = (props) => {
   };
 
   const loginHandler = () => {
-    if (profile === undefined) {
+    if (profile === undefined || profile === 'anonymous') {
       navigate('/login');
     } else {
       return;
     }
   };
 
+  const imageClickHandler = () =>{
+    navigate('/')
+  }
+
   return (
     <header>
-      <img className="img-logo-capybara" src={logoCapybara} alt="" />
+      <img className="img-logo-capybara" onClick={imageClickHandler} src={logoCapybara} alt="" />
 
       <div className="box-header-n">
         <button className="profile-or-login" onClick={loginHandler}>
-          <strong>{profile ? profile : 'login'}</strong>
+          <strong>{(profile !== 'anonymous') ? profile : 'Entrar'}</strong>
         </button>
         <button className="sign-up-or-in" onClick={registerAndSignHandler}>
           <strong>
-            {profile === undefined ? 'register' : profile === 'anonymous' ? 'sign-in' : 'Log-out'}
+            {profile === undefined ? 'Registrar' : profile === 'anonymous' ? 'Registrar' : 'Sair'}
           </strong>
         </button>
       </div>

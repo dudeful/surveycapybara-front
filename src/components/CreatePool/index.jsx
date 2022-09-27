@@ -29,8 +29,6 @@ function CreatePool(props) {
     options: [],
   };
 
-  //console.log(user);
-
   //this function is to verify if the token is still valid, if it isn't then we redirect the user back to login screen
   const isTokenFresh = async () => {
     try {
@@ -99,7 +97,7 @@ function CreatePool(props) {
         .then((responce) => responce)
         .then((data) => data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
     navigate('/');
   };
@@ -201,7 +199,6 @@ function CreatePool(props) {
                 value={item.value}
                 id={'option-' + i}
                 inputHandler={(event) => {
-                  console.log(i);
                   inputHandler(event, i);
                 }}
                 removeHandler={removeHandler}

@@ -1,12 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UserContextProvider } from './components/Context/UserContext';
 import { SocketContextProvider } from './components/Context/SocketContext';
 import PoolForms from './components/PoolForms/';
 import Pool from './components/Pool';
 import Login from './components/Login';
 import EnterCode from './components/EnterCode';
-import Mypools from './components/Mypools';
 import './App.css';
 import Register from './components/Register';
 
@@ -23,7 +22,6 @@ function App() {
               </SocketContextProvider>
             }
           />
-          <Route path="/pools/mypools/:pool_id" element={<Mypools />} />
           <Route path="/create-pool" element={<PoolForms />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

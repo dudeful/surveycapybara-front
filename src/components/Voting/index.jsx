@@ -4,19 +4,25 @@ import React, { useContext, useState, Component } from 'react';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
+import { useParams } from 'react-router-dom';
 import { Option } from './Option';
+import { useEffect } from 'react';
 
 function Voting(props) {
+  const { pool_id } = useParams();
   const socket = useContext(SocketContext);
   const [user, setUser] = useContext(UserContext);
   const [count, setCount] = useState(0);
 
+  useEffect(()=>{setCount(0)},[pool_id])
+
   const castVote = (e) => {
     try {
-      if (count < props.pool.posite_votes) {
+      if (count < props.pool.positive_votes_per_voter) {
         setCount(count + 1);
         const data = {
           user,
+          pool_id,
           code: 1,
           vote: e.target.id,
         };
@@ -30,24 +36,7 @@ function Voting(props) {
     }
   };
 
-  //console.log(props.pool);
   const links = window.location.href;
-
-  const votesAvailable = (avability) => {
-    if (avability > 1) {
-      return (
-        <p>
-          Você tem <span>{avability}</span> disponíveis
-        </p>
-      );
-    } else {
-      return (
-        <p>
-          Você tem <span>{avability}</span> disponível
-        </p>
-      );
-    }
-  };
 
   const display = (status) => {
     if (!status) {
@@ -59,7 +48,7 @@ function Voting(props) {
             id={option.id}
             function={castVote}
             votes={option.votes}
-            visibility={props.pool.visible}
+            visibility={props.pool.visible_vote}
           />
         );
       });
@@ -82,7 +71,7 @@ function Voting(props) {
   return (
     <>
       <div className="voting">
-        <h2>{props.pool.title}</h2>
+        <h2>{props.pool.name}</h2>
         <div className="sharedlink">
           <p>Compartilhe o link de sua pesquisa: </p>
           <p className="links" id="linking">
@@ -98,9 +87,9 @@ function Voting(props) {
             copiar
           </button>
         </div>
-        {display(props.pool.posite_votes === count)}
+        {display(props.pool.positive_votes_per_voter === count)}
         <div className="votes-display">
-          <div>{votesAvailable(props.pool.posite_votes - count)}</div>
+          <p id="remaining_votes">Votos restantes: {props.pool.positive_votes_per_voter - count}</p>
           <div>
             <label className="label-votes" htmlFor="allVotes">
               N° total de votos:

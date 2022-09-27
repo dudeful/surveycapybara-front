@@ -35,12 +35,10 @@ const Register = () => {
 
     const response = await fetch(`${API_URL}/users/register`, options);
     const data = await response.json();
-    //console.log(data);
 
     if (data.isAuthenticated) {
       setUser(data.user);
       //navigate(`/pool/${pool_id}`);
-      console.log(user);
       navigate(`/code`);
       //navigate(-1);
     }
@@ -48,23 +46,19 @@ const Register = () => {
 
   const handleStatus = (e) => {
     setStatus(true);
-    //console.log(status);
     navigate(`/login`);
   };
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
-    //console.log(username);
   };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    //console.log(email);
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    //console.log(password);
   };
 
   return (
@@ -75,19 +69,19 @@ const Register = () => {
           <legend className="box-modal">
             <div className="box-modal-l-login" value={status} onClick={handleStatus}>
               <img src={IconProfile} alt="" />
-              <input className="input-btn-login" type="button" value="LOGIN" />
+              <input className="input-btn-login" type="button" value="ENTRAR" />
             </div>
 
             <div className="box-modal-r-register">
               <img src={IconProfilePlus} alt="" />
-              <input className="input-btn-register" type="button" value="REGISTER" />
+              <input className="input-btn-register" type="button" value="REGISTRAR" />
             </div>
           </legend>
           <div className="input-box-username">
             <img src={IconProfile} alt="" />
             <input
               className="input-username"
-              placeholder="Your  username"
+              placeholder="Seu nome de Usuário"
               type="text"
               id="register_username"
               value={username}
@@ -98,7 +92,7 @@ const Register = () => {
             <img src={IconEmail} alt="" />
             <input
               className="input-email"
-              placeholder="Your  email"
+              placeholder="Seu email"
               type="email"
               id="register_email"
               value={email}
@@ -109,7 +103,7 @@ const Register = () => {
             <img src={IconPassword} alt="" />
             <input
               className="input-password"
-              placeholder="Your password"
+              placeholder="Sua Senha"
               type="password"
               id="register_password"
               value={password}

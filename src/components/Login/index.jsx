@@ -34,11 +34,9 @@ function Login(props) {
     const response = await fetch(`${API_URL}/users/login`, options);
     const data = await response.json();
 
-    //console.log(data);
-
     if (data.isAuthenticated) {
       setUser(data.user);
-      navigate(`/code`);
+      navigate(`/`);
     }
   };
 
@@ -63,19 +61,19 @@ function Login(props) {
           <legend className="box-login-modal">
             <div className="box-modal-login">
               <img src={IconProfile} alt="" />
-              <input className="input-btn-login" type="button" value="LOGIN" />
+              <input className="input-btn-login" type="button" value="ENTRAR" />
             </div>
 
             <div className="box-modal-register" value={status} onClick={handleStatus}>
               <img src={IconProfilePlus} alt="" />
-              <input className="input-btn-register" type="button" value="REGISTER" />
+              <input className="input-btn-register" type="button" value="REGISTRAR" />
             </div>
           </legend>
           <div className="input-box-email">
             <img src={IconEmail} alt="" />
             <input
               className="input-email"
-              placeholder="Your  email"
+              placeholder="Seu email"
               type="email"
               id="login_email"
               value={email}
@@ -86,17 +84,12 @@ function Login(props) {
             <img src={IconPassword} alt="" />
             <input
               className="input-password"
-              placeholder="Your password"
+              placeholder="Sua Senha"
               type="password"
               id="login_password"
               value={password}
               onChange={handlePassword}
             />
-          </div>
-          <div>
-            <a href="http://#" target="_blank" rel="noopener noreferrer">
-              Forgot Password?
-            </a>
           </div>
 
           <button type="button" className="btn-login" id="login_button" onClick={loginHandler}>
