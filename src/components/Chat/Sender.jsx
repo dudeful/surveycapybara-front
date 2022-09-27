@@ -30,6 +30,14 @@ function Sender(props) {
     message_text.value = '';
   };
 
+  const keydown = (event) => {
+    if (event.ctrlKey && event.key === 'Enter') {
+      sendMessage();
+    }
+  };
+
+  document.onkeydown = keydown;
+
   return (
     <div className="chat_container">
       <strong className="user">{user.username}</strong>
