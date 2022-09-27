@@ -73,7 +73,7 @@ function Login(props) {
             <img src={IconEmail} alt="" />
             <input
               className="input-email"
-              placeholder="Your  email"
+              placeholder="Seu email"
               type="email"
               id="login_email"
               value={email}
@@ -84,7 +84,7 @@ function Login(props) {
             <img src={IconPassword} alt="" />
             <input
               className="input-password"
-              placeholder="Your password"
+              placeholder="Sua Senha"
               type="password"
               id="login_password"
               value={password}
