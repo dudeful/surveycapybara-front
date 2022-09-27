@@ -1,14 +1,16 @@
 /* eslint-disable */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Header from '../Header/Header';
 import SideBar from '../SideBar';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import { API_URL } from '../Env';
+//import ReactTooltip from 'react-tooltip';
 import './styles.css';
 
 const EnterCode = () => {
   const [user, setUser] = useContext(UserContext);
+  const [label, setLabel] = useState('')
 
   const navigate = useNavigate();
   const buttonHandler = (event) => {
@@ -20,6 +22,7 @@ const EnterCode = () => {
     const re = /[0-9A-Fa-f]{8}/g;
 
     if (!(re.test(pool.id))) {
+      setLabel("Código inválido!");
       return;
     }
 
@@ -42,6 +45,7 @@ const EnterCode = () => {
       console.error(error);
     }
   };
+  console.log((label !== '') ? " error-input": "");
   return (
     <>
       <Header profile={user.username} />
@@ -52,12 +56,13 @@ const EnterCode = () => {
             <h2 className='field-title'>Digite um código</h2>
             <input
               id="codeField"
-              className="input-code-enter"
+              className={"input-code-enter" + (label !== '') ? " error-input": ""}
               type="text"
               placeholder="000000"
             />
+            <p className="text-[11px]">{label !== '' ? <label className="error" htmlFor={codeField}>{label}</label>:<></>}</p>
             <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
-           
+            
           </fieldset>
         </form>
       </div>
