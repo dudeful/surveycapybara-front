@@ -7,7 +7,7 @@ function Option(props) {
       <div>
         <button key={props.id} className={'option'} id={props.id} onClick={props.function}>
           {' '}
-          {props.name}
+          <strong>{props.name}</strong>
         </button>
         <button className="qntvotes">
           {' '}
@@ -20,7 +20,7 @@ function Option(props) {
       <div>
         <button key={props.id} className={'option-round'} id={props.id} onClick={props.function}>
           {' '}
-          {props.name}
+          <strong>{props.name}</strong>
         </button>
       </div>
     );
