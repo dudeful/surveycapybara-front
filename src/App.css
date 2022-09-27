@@ -61,6 +61,18 @@ header {
   font-size: 1em;
 }
 
+.profile-or-login:hover,
+.sign-up-or-in:hover {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 0.1em;
+  color: #5b28bf;
+}
+
+.img-logo-capybara{
+  cursor: pointer;
+}
+
 img {
   width: 5rem;
 }

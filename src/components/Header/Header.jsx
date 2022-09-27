@@ -21,9 +21,13 @@ const Header = (props) => {
     }
   };
 
+  const imageClickHandler = () =>{
+    navigate('/')
+  }
+
   return (
     <header>
-      <img className="img-logo-capybara" src={logoCapybara} alt="" />
+      <img className="img-logo-capybara" onClick={imageClickHandler} src={logoCapybara} alt="" />
 
       <div className="box-header-n">
         <button className="profile-or-login" onClick={loginHandler}>
