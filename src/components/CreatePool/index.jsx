@@ -176,7 +176,6 @@ function CreatePool(props) {
               className={'input-form'}
               placeholder="Titulo da Pesquisa"
             />
-            {status ? <label className='test'>preencha o campo</label> : ""}
           </div>
           {status
             ? ((status_titulo = 'Campo "titulo" vazio.'),

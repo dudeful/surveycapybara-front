@@ -22,6 +22,7 @@ const Register = () => {
   const [labelemail, setEmailLabel] = useState('');
   const [labelusername, setUsernameLabel] = useState('');
   const [labelpass, setPassLabel] = useState('');
+  const [label, setLabel] =  useState('');
 
   const registerHandler = async () => {
     // const email = document.getElementById('register_email').value;
@@ -30,6 +31,7 @@ const Register = () => {
     setEmailLabel('');
     setUsernameLabel('');
     setPassLabel('');
+    setLabel(''); 
 
     const user = { email, password, username };
 
@@ -43,6 +45,7 @@ const Register = () => {
     const response = await fetch(`${API_URL}/users/register`, options);
     const data = await response.json();
 
+    console.log(data)
     switch (data.error) {
       case 'the email provided is not valid!':
         setEmailLabel('Email inválido');
@@ -56,6 +59,8 @@ const Register = () => {
         setPassLabel(
           'A senha deve conter no mínimo 1 letra maiscúla, 1 minúscula, 1 número, 1 caractere especial e tamanho 8'
         );
+      case  'This email or username is already in use':
+          setLabel("Já existe um cadastro")
         break;
 
       default:
@@ -157,6 +162,15 @@ const Register = () => {
             {labelpass !== '' ? (
               <label className="error" htmlFor={'register_password'}>
                 {labelpass}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
+          <p className="text-[11px]">
+            {label !== '' ? (
+              <label className="error" htmlFor={'register_eamil'}>
+                {label}
               </label>
             ) : (
               <></>
