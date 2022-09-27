@@ -8,6 +8,7 @@ function CreatePool(props) {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
   const [prot, setProt] = useState(false);
+  const [status, setStatus] = useState(false);
   const pool = {
     owner: user.email,
     name: user.username,
@@ -42,11 +43,28 @@ function CreatePool(props) {
   ]);
 
   const handleSubmit = (event) => {
+    
     event.preventDefault();
 
     pool.name = document.getElementById('title').value;
     pool.positive_votes_per_voter = document.getElementById('numVotes').value;
     pool.options = arr;
+
+    console.log("pool.name: ", pool.name)
+    
+    if ( !pool.name.match (/\S/) ) {
+      const test = document.getSelection(".test");
+      
+      console.log(test)
+      test.innerHTML = "por favor, preencha o campo"
+      setStatus(true)
+      return true
+    }else if (true) {
+      console.log(pool.options)
+      return
+    }else {
+
+    }
 
     const complete = arr.reduce((previusValor, currentValor) => {
       if (currentValor.value !== '' && previusValor) {
@@ -156,6 +174,7 @@ function CreatePool(props) {
               className={'input-form'}
               placeholder="Titulo da Pesquisa"
             />
+            {status ? <label className='test'>preencha o campo</label> : ""} 
           </div>
           <div className="input-form-box input-form-box-label">
             <label className="label-input" htmlFor="numVotes">

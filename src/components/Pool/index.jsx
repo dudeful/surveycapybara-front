@@ -71,7 +71,7 @@ function Pool(props) {
 
     isTokenFresh();
     fetchPool();
-  }, []);
+  }, [pool_id]);
 
   useEffect(() => {
     socket.onmessage = (event) => {
