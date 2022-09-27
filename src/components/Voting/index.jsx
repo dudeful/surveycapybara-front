@@ -6,12 +6,15 @@ import { SocketContext } from '../Context/SocketContext';
 import { UserContext } from '../Context/UserContext';
 import { useParams } from 'react-router-dom';
 import { Option } from './Option';
+import { useEffect } from 'react';
 
 function Voting(props) {
   const { pool_id } = useParams();
   const socket = useContext(SocketContext);
   const [user, setUser] = useContext(UserContext);
   const [count, setCount] = useState(0);
+
+  useEffect(()=>{setCount(0)},[pool_id])
 
   const castVote = (e) => {
     try {
