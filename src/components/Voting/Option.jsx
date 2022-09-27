@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Option(props) {
-  //console.log(props);
   if (props.visibility) {
     return (
       <div>

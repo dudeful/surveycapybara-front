@@ -5,7 +5,6 @@ import Message from './Message.jsx';
 import Sender from './Sender.jsx';
 
 function Chat(props) {
-  //console.log("props: ",props.message)
   const scrollToMessage = useRef(null);
   const scrollToLastMessage = () => {
     scrollToMessage.current.scrollIntoView({ behavior: 'smooth' });

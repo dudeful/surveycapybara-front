@@ -30,7 +30,6 @@ function Voting(props) {
     }
   };
 
-  //console.log(props.pool);
   const links = window.location.href;
 
   const votesAvailable = (avability) => {

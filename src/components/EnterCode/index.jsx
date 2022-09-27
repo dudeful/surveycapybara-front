@@ -19,7 +19,6 @@ const EnterCode = () => {
     };
 
     if (pool.id === '') {
-      //console.log('vazio');
       return;
     }
 
@@ -39,7 +38,7 @@ const EnterCode = () => {
         state: { id: pool.id },
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   return (
