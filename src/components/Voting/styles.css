@@ -144,15 +144,24 @@ h2 {
   color: #8b58f0;
 }
 .copybtn {
+  border: solid 2px #080808;
   border-radius: 5px;
   margin: 1em;
-  background-color: #a9a9a9;
+  background-color: #8b58f0;
+  color: #f1f1f1;
   transition: all 0.2s ease-in-out;
   height: 1.5em;
   font-size: 1.5em;
   width: 5em;
   margin-left: 0.5em;
+  padding-bottom: 0.5em;
 }
+
+.copybtn:hover{
+  background-color: #f1f1f1;
+  color: #8b58f0;
+}
+
 p {
   font-size: 2em;
   color: #f1f1f1;
