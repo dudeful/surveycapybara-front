@@ -27,6 +27,10 @@ const Register = () => {
     // const email = document.getElementById('register_email').value;
     // const password = document.getElementById('register_password').value;
 
+    setEmailLabel('');
+    setUsernameLabel('');
+    setPassLabel('');
+
     const user = { email, password, username };
 
     const options = {
@@ -41,21 +45,21 @@ const Register = () => {
 
     switch (data.error) {
       case 'the email provided is not valid!':
-        setEmailLabel(data.error);
+        setEmailLabel('Email inválido');
         break;
 
       case 'the username provided is not valid!':
-        setUsernameLabel(data.error);
+        setUsernameLabel('o Campo usuário não pode ser vazio');
         break;
 
       case 'the password provided is not valid!':
-        setPassLabel(data.error);
+        setPassLabel(
+          'A senha deve conter no mínimo 1 letra maiscúla, 1 minúscula, 1 número, 1 caractere especial e tamanho 8'
+        );
         break;
 
       default:
     }
-
-    console.log(data.error);
 
     if (data.isAuthenticated) {
       setUser(data.user);
@@ -108,16 +112,16 @@ const Register = () => {
               value={username}
               onChange={handleUsername}
             />
-            <p className="text-[11px]">
-              {labelusername !== '' ? (
-                <label className="error" htmlFor={'register_username'}>
-                  {labelusername}
-                </label>
-              ) : (
-                <></>
-              )}
-            </p>
           </div>
+          <p className="text-[11px]">
+            {labelusername !== '' ? (
+              <label className="error" htmlFor={'register_username'}>
+                {labelusername}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
           <div className="input-box-email">
             <img src={IconEmail} alt="" />
             <input
@@ -128,16 +132,16 @@ const Register = () => {
               value={email}
               onChange={handleEmail}
             />
-            <p className="text-[11px]">
-              {labelemail !== '' ? (
-                <label className="error" htmlFor={'register_email'}>
-                  {labelemail}
-                </label>
-              ) : (
-                <></>
-              )}
-            </p>
           </div>
+          <p className="text-[11px]">
+            {labelemail !== '' ? (
+              <label className="error" htmlFor={'register_email'}>
+                {labelemail}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
           <div className="input-box-password">
             <img src={IconPassword} alt="" />
             <input
@@ -148,16 +152,16 @@ const Register = () => {
               value={password}
               onChange={handlePassword}
             />
-            <p className="text-[11px]">
-              {labelpass !== '' ? (
-                <label className="error" htmlFor={'register_password'}>
-                  {labelpass}
-                </label>
-              ) : (
-                <></>
-              )}
-            </p>
           </div>
+          <p className="text-[11px]">
+            {labelpass !== '' ? (
+              <label className="error" htmlFor={'register_password'}>
+                {labelpass}
+              </label>
+            ) : (
+              <></>
+            )}
+          </p>
 
           <button
             type="button"
