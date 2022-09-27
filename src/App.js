@@ -26,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/code" element={<EnterCode />} />
+          <Route path="/" element={<EnterCode />} />
         </Routes>
       </BrowserRouter>
     </UserContextProvider>

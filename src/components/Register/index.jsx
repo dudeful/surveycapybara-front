@@ -1,19 +1,17 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import Header from '../Header/Header';
 import IconProfile from '../../img/icon_profile.png';
 import IconProfilePlus from '../../img/icon_profile_plus.png';
 import IconEmail from '../../img/icon_email.png';
 import IconPassword from '../../img/icon_password.png';
+import { API_URL } from '../Env';
 
 import './style.css';
 
-const API_URL = 'https://server-surveycapybara.dudeful.com';
-
 const Register = () => {
-  const { pool_id } = useParams();
   const [user, setUser] = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -27,7 +25,7 @@ const Register = () => {
     // const password = document.getElementById('register_password').value;
 
     const user = { email, password, username };
-    
+
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -37,40 +35,41 @@ const Register = () => {
 
     const response = await fetch(`${API_URL}/users/register`, options);
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
 
     if (data.isAuthenticated) {
       setUser(data.user);
       //navigate(`/pool/${pool_id}`);
-      navigate(`/pool/${'ea78cc88'}`);
+      console.log(user);
+      navigate(`/code`);
       //navigate(-1);
     }
   };
 
   const handleStatus = (e) => {
     setStatus(true);
-    console.log(status);
+    //console.log(status);
     navigate(`/login`);
   };
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
-    console.log(username);
+    //console.log(username);
   };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    console.log(email);
+    //console.log(email);
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    console.log(password);
+    //console.log(password);
   };
 
   return (
     <>
-      <Header> </Header>
+      <Header profile={user.username} />
       <form id="register" className="box-form-register">
         <fieldset className="box-fieldset-register">
           <legend className="box-modal">

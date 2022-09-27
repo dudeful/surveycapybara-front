@@ -2,13 +2,12 @@
 import React, { createContext, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from './UserContext';
-
-const WS_URL = 'wss://ws-server-surveycapybara.dudeful.com';
-//const WS_URL = 'ws://localhost:5050';
+import { WS_URL } from '../Env';
 
 const SocketContext = createContext({});
 
 const SocketContextProvider = ({ children }) => {
+  //console.log(WS_URL);
   const { pool_id } = useParams();
   const [socket, setSocket] = useState(new WebSocket(WS_URL, [pool_id]));
   const [user, setUser] = useContext(UserContext);

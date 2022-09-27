@@ -11,9 +11,6 @@ function Voting(props) {
   const [user, setUser] = useContext(UserContext);
   const [count, setCount] = useState(0);
 
-  //console.log("Voting props.options")
-  //console.log(props.options)
-
   const castVote = (e) => {
     try {
       if (count < props.pool.posite_votes) {
@@ -24,8 +21,6 @@ function Voting(props) {
           vote: e.target.id,
         };
 
-        //console.log("Voting castVote socket.send data")
-        //console.log(data)
         socket.send(JSON.stringify(data));
         e.currentTarget.disabled = true;
       }
@@ -35,7 +30,7 @@ function Voting(props) {
     }
   };
 
-  console.log(props.pool);
+  //console.log(props.pool);
 
   const votesAvailable = (avability) => {
     if (avability > 1) {

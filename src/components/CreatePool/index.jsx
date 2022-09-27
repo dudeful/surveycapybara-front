@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 import InputOption from './InputOption';
 import './styles.css';
+import { API_URL } from '../Env';
 
 function CreatePool(props) {
   const navigate = useNavigate();
@@ -26,7 +27,22 @@ function CreatePool(props) {
     options: [],
   };
 
-  console.log(user);
+  //console.log(user);
+
+  //this function is to verify if the token is still valid, if it isn't then we redirect the user back to login screen
+  const isTokenFresh = async () => {
+    try {
+      const response = await fetch(`${API_URL}/users/refresh`, { credentials: 'include' });
+      const token = await response.json();
+
+      if (!token.isAuthenticated) {
+        navigate('/login');
+      }
+    } catch (error) {
+      console.error('<<<ERROR WHILE REFRESHING TOKEN>>>');
+      console.error(error);
+    }
+  };
 
   const [arr, setArr] = useState([
     {
@@ -44,12 +60,13 @@ function CreatePool(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    pool.name = document.getElementById('title').value;
+    pool.name = document.getElementById('title').value.trim();
     pool.positive_votes_per_voter = document.getElementById('numVotes').value;
     pool.options = arr;
+    pool.visible_vote = !prot;
 
     const complete = arr.reduce((previusValor, currentValor) => {
-      if (currentValor.value !== '' && previusValor) {
+      if (currentValor.name.trim() !== '' && previusValor) {
         return true;
       } else {
         return false;
@@ -57,21 +74,16 @@ function CreatePool(props) {
     }, true);
 
     if (complete) {
-      if (prot) {
-        const pass = document.getElementById('poolpass');
-        if (pass !== '' && pool.name !== '') {
-          pool.pool_password = pass.value;
-        } else {
-          return;
-        }
+      //const pass = document.getElementById('poolpass');
+      if (pool.name === '' || pool.name === undefined) {
+        return;
       }
     } else {
       return;
     }
 
     try {
-      fetch('https://server-surveycapybara.dudeful.com/pools/new', {
-        //fetch('http://localhost:5000', {
+      fetch(`${API_URL}/pools/new`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ pool }),
@@ -104,10 +116,6 @@ function CreatePool(props) {
   };
 
   const inputHandler = (event, i) => {
-    console.log('inputs');
-    console.log(arr);
-    console.log(arr[i]);
-    console.log(i);
     arr[i].name = event.target.value;
   };
 
@@ -131,7 +139,7 @@ function CreatePool(props) {
     setArr([...arr]);
   };
 
-  const password = () => {
+  /*const password = () => {
     if (prot) {
       return (
         <div className="input-form-box">
@@ -141,7 +149,9 @@ function CreatePool(props) {
     } else {
       return '';
     }
-  };
+  };*/
+
+  isTokenFresh();
 
   return (
     <div className="create-pool">
@@ -171,11 +181,10 @@ function CreatePool(props) {
           </div>
           <div className="input-form-box input-form-box-label">
             <label className="label-input" htmlFor="secury">
-              Proteger com senha:
+              Esconder votos:
             </label>
             <input type="checkbox" name="secury" onChange={checkboxHandler} />
           </div>
-          {password()}
           {arr.map((item, i) => {
             return (
               <InputOption

@@ -1,13 +1,13 @@
-import React, {useState, useContext} from 'react';
+import React, { useContext } from 'react';
 import Header from '../Header/Header';
 import SideBar from '../SideBar';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
-import { SocketContext } from '../Context/SocketContext';
+//import { SocketContext } from '../Context/SocketContext';
+import { API_URL } from '../Env';
 import './styles.css';
 
 const EnterCode = () => {
-
   const [user, setUser] = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -15,16 +15,17 @@ const EnterCode = () => {
     event.preventDefault();
     const pool = {
       id: document.getElementById('codeField').value,
-      password: document.getElementById('password').value,
+      //password: document.getElementById('password').value,
     };
 
     if (pool.id === '') {
-      console.log('vazio');
+      //console.log('vazio');
       return;
     }
 
-    const url = `https://server-surveycapybara.dudeful.com/pools?id=${pool.id}&password=${pool.password}`;
-    //const url = `http://localhost:5000/pools?id=${pool.id}&password=${pool.password}`
+    //const url = `${API_URL}/pools?id=${pool.id}&password=${pool.password}`;
+
+    const url = `${API_URL}/pools?id=${pool.id}`;
 
     try {
       fetch(url)
@@ -32,9 +33,10 @@ const EnterCode = () => {
           response.json();
         })
         .then((data) => data);
-      
+
       navigate(`/pool/${pool.id}`, {
-        state: { id: pool.id, password: pool.password },
+        //state: { id: pool.id, password: pool.password },
+        state: { id: pool.id },
       });
     } catch (error) {
       console.log(error);
@@ -42,7 +44,7 @@ const EnterCode = () => {
   };
   return (
     <>
-      <Header profile = {user.username}/>
+      <Header profile={user.username} />
       <div className="page">
         <SideBar />
         <form className="box-form-code centrilize">
@@ -53,12 +55,6 @@ const EnterCode = () => {
               className="input-code-enter"
               type="text"
               placeholder="Enter code"
-            />
-            <input
-              id="password"
-              className="input-code-password"
-              type="password"
-              placeholder="Enter password"
             />
             <input className="input-code-btn" type="button" value="Enter" onClick={buttonHandler} />
           </fieldset>
