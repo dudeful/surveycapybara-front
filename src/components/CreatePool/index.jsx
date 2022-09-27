@@ -59,6 +59,7 @@ function CreatePool(props) {
     },
   ]);
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     status_titulo = '';
@@ -72,6 +73,7 @@ function CreatePool(props) {
 
     const complete = arr.reduce((previusValor, currentValor) => {
       if (currentValor.name.trim() !== '' && previusValor) {
+        
         return true;
       } else {
         setBool(true);
@@ -80,6 +82,7 @@ function CreatePool(props) {
     }, true);
 
     if (complete) {
+     
       //const pass = document.getElementById('poolpass');
       if (pool.name === '' || pool.name === undefined) {
         setStatus(true);
@@ -87,6 +90,7 @@ function CreatePool(props) {
         return;
       }
     } else {
+      
       return;
     }
 
@@ -211,6 +215,7 @@ function CreatePool(props) {
               Esconder votos:
             </label>
             <input type="checkbox" name="secury" onChange={checkboxHandler} />
+            
           </div>
           {arr.map((item, i) => {
             return (
@@ -222,7 +227,9 @@ function CreatePool(props) {
                 }}
                 removeHandler={removeHandler}
               />
+              
             );
+            
           })}
           {bool ? <label className="test">campo "opções" vazio, favor preencher</label> : ''}
 
