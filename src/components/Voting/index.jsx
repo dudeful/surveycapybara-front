@@ -31,6 +31,7 @@ function Voting(props) {
   };
 
   //console.log(props.pool);
+  const links = window.location.href;
 
   const votesAvailable = (avability) => {
     if (avability > 1) {
@@ -82,7 +83,21 @@ function Voting(props) {
     <>
       <div className="voting">
         <h2>{props.pool.title}</h2>
-        <p>{props.pool.description}</p>
+        <div className="sharedlink">
+          <p>Compartilhe o link de sua pesquisa: </p>
+          <p className="links" id="linking">
+            {' '}
+            {links}
+          </p>
+          <button
+            className="copybtn"
+            onClick={() => {
+              navigator.clipboard.writeText(links);
+            }}
+          >
+            copiar
+          </button>
+        </div>
         {display(props.pool.posite_votes === count)}
         <div className="votes-display">
           <div>{votesAvailable(props.pool.posite_votes - count)}</div>

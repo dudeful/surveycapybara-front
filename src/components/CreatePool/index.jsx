@@ -111,7 +111,7 @@ function CreatePool(props) {
     } catch (error) {
       console.log(error);
     }
-    navigate('/code');
+    navigate('/');
   };
   const handleButton = (event) => {
     event.preventDefault();

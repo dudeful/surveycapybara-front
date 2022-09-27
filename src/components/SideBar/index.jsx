@@ -51,7 +51,8 @@ function SideBar(props) {
     navigation(`/pool/${props}`, { state: { id: props } });
     window.location.reload();
   };
-
+  console.log('aqui');
+  console.log(props);
   const ButtonNavigation = (props) => {
     return (
       <button
@@ -64,12 +65,13 @@ function SideBar(props) {
       </button>
     );
   };
-
+  //{props.owner === 'anonymous'?
   return (
     <div className="side-bar">
       {itens.map((item, i) => {
         return <ButtonNavigation href={item.id} name={item.name} key={i} />;
       })}
+
       <Link className="navigation-create" to="/create-pool">
         +
       </Link>

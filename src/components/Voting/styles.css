@@ -1,6 +1,8 @@
 h2 {
-  text-align: center;
+  align-self: center;
+  text-justify: center;
   font-family: 'Asap', sans-serif;
+  color: #f1f1f1;
 }
 
 .voting {
@@ -11,7 +13,7 @@ h2 {
   min-height: 90vh;
   max-width: 60vw;
   overflow-y: scroll;
-  margin-left: 25%;
+  margin-left: 20%;
   margin-top: 5em;
 }
 
@@ -68,6 +70,19 @@ h2 {
   border-radius: 10px;
 }
 
+.option:hover {
+  color: #5b28bf;
+  background-color: #f1f1f1;
+  opacity: 100%;
+  transition: all 1.2s ease;
+}
+
+.option-round:hover {
+  color: #5b28bf;
+  background-color: #f1f1f1;
+  transition: all 1.2s ease;
+}
+
 .boxOption {
   display: flex;
 }
@@ -93,6 +108,7 @@ h2 {
   font-family: 'Asap', sans-serif;
   font-size: 2em;
   padding-left: 2em;
+  color: #f1f1f1;
 }
 
 .total-votes {
@@ -104,6 +120,7 @@ h2 {
   align-self: center;
   padding: 0.5em;
   margin-left: 1em;
+  color: #f1f1f1;
 }
 
 .votes-display {
@@ -111,6 +128,32 @@ h2 {
   justify-content: space-around;
   align-items: center;
 }
+.sharedlink {
+  display: flex;
+  margin-bottom: 3%;
+  align-items: center;
+  font-size: 1.25em;
+  padding-left: 2em;
+  justify-self: center;
+  text-justify: center;
+  color: #f1f1f1;
+}
+.links {
+  display: flex;
+  margin-left: 3em;
+  color: #8b58f0;
+}
+.copybtn {
+  border-radius: 5px;
+  margin: 1em;
+  background-color: #a9a9a9;
+  transition: all 0.2s ease-in-out;
+  height: 1.5em;
+  font-size: 1.5em;
+  width: 5em;
+  margin-left: 0.5em;
+}
 p {
   font-size: 2em;
+  color: #f1f1f1;
 }
