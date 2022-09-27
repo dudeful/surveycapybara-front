@@ -36,7 +36,7 @@ function Login(props) {
 
     if (data.isAuthenticated) {
       setUser(data.user);
-      navigate(`/code`);
+      navigate(`/`);
     }
   };
 
