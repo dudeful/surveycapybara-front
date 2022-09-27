@@ -31,11 +31,11 @@ const Header = (props) => {
 
       <div className="box-header-n">
         <button className="profile-or-login" onClick={loginHandler}>
-          <strong>{(profile !== 'anonymous') ? profile : 'Login'}</strong>
+          <strong>{(profile !== 'anonymous') ? profile : 'Entrar'}</strong>
         </button>
         <button className="sign-up-or-in" onClick={registerAndSignHandler}>
           <strong>
-            {profile === undefined ? 'Registrar' : profile === 'anonymous' ? 'Registrar' : 'Logout'}
+            {profile === undefined ? 'Registrar' : profile === 'anonymous' ? 'Registrar' : 'Sair'}
           </strong>
         </button>
       </div>
