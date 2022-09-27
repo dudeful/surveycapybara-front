@@ -52,7 +52,7 @@ const Register = () => {
         break;
 
       case 'the username provided is not valid!':
-        setUsernameLabel('o Campo usuário não pode ser vazio');
+        setUsernameLabel('o Campo usuário inválido');
         break;
 
       case 'the password provided is not valid!':
