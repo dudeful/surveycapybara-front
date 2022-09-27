@@ -91,11 +91,6 @@ function Login(props) {
               onChange={handlePassword}
             />
           </div>
-          <div>
-            <a href="http://#" target="_blank" rel="noopener noreferrer">
-              Forgot Password?
-            </a>
-          </div>
 
           <button type="button" className="btn-login" id="login_button" onClick={loginHandler}>
             <h3>LOGIN</h3>
