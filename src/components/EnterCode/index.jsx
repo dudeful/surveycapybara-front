@@ -45,7 +45,6 @@ const EnterCode = () => {
       console.error(error);
     }
   };
-  console.log((label !== '') ? " error-input": "");
   return (
     <>
       <Header profile={user.username} />
