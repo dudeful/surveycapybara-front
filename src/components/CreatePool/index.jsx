@@ -10,6 +10,7 @@ function CreatePool(props) {
   const [user, setUser] = useContext(UserContext);
   const [prot, setProt] = useState(false);
   const [status, setStatus] = useState(false);
+  const [bool,setBool] =  useState(false)
   const pool = {
     owner: user.email,
     name: user.username,
@@ -59,7 +60,7 @@ function CreatePool(props) {
   ]);
 
   const handleSubmit = (event) => {
-    
+
     event.preventDefault();
 
     pool.name = document.getElementById('title').value.trim();
@@ -67,36 +68,25 @@ function CreatePool(props) {
     pool.options = arr;
     pool.visible_vote = !prot;
 
-    console.log("pool.name: ", pool.name)
-    
-    if ( !pool.name.match (/\S/) ) {
-      const test = document.getSelection(".test");
-      
-      console.log(test)
-      test.innerHTML = "por favor, preencha o campo"
-      setStatus(true)
-      return true
-    }else if (true) {
-      console.log(pool.options)
-      return
-    }else {
-
-    }
-
     const complete = arr.reduce((previusValor, currentValor) => {
       if (currentValor.name.trim() !== '' && previusValor) {
+        
         return true;
       } else {
+        setBool(true)
         return false;
       }
     }, true);
 
     if (complete) {
+     
       //const pass = document.getElementById('poolpass');
       if (pool.name === '' || pool.name === undefined) {
+        setStatus(true)
         return;
       }
     } else {
+      
       return;
     }
 
@@ -183,7 +173,7 @@ function CreatePool(props) {
               className={'input-form'}
               placeholder="Titulo da Pesquisa"
             />
-            {status ? <label className='test'>preencha o campo</label> : ""} 
+            {status ? <label className='test'>preencha o campo</label> : ""}
           </div>
           <div className="input-form-box input-form-box-label">
             <label className="label-input" htmlFor="numVotes">
@@ -203,6 +193,7 @@ function CreatePool(props) {
               Esconder votos:
             </label>
             <input type="checkbox" name="secury" onChange={checkboxHandler} />
+            
           </div>
           {arr.map((item, i) => {
             return (
@@ -215,8 +206,12 @@ function CreatePool(props) {
                 }}
                 removeHandler={removeHandler}
               />
+              
             );
+            
           })}
+          {bool ? <label className='test'>preencha o campo das opções</label> : ""}
+            
           <div className="divButtons">
             <button className="bnt-forms asap" onClick={handleButton}>
               <strong>Adicionar Opção</strong>
