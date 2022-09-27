@@ -59,7 +59,12 @@ function CreatePool(props) {
     if (complete) {
       if (prot) {
         const pass = document.getElementById('poolpass');
-        if (pass !== '' && pool.name !== '') {
+        if (pool.name !== ''){
+
+        }else{
+          return;
+        }
+        if (pass !== '') {
           pool.pool_password = pass.value;
         } else {
           return;
@@ -104,10 +109,6 @@ function CreatePool(props) {
   };
 
   const inputHandler = (event, i) => {
-    console.log('inputs');
-    console.log(arr);
-    console.log(arr[i]);
-    console.log(i);
     arr[i].name = event.target.value;
   };
 

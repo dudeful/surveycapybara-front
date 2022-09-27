@@ -26,7 +26,7 @@ header {
   align-items: center;
   justify-content: space-between;
   width: 100vw;
-  height: 5vh;
+  height: 6vh;
   background-color: #5b28bf;
   position: fixed;
 }
@@ -49,6 +49,13 @@ header {
 .profile-or-login, .sign-up-or-in {
   cursor: pointer;
   padding: 0 1rem;
+}
+
+.profile-or-login, .sign-up-or-in{
+  background-color: #5b28bf;
+  color: #f1f1f1;
+  border: none;
+  font-size: 1em;
 }
 
 img {
