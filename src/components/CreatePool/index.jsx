@@ -97,11 +97,12 @@ function CreatePool(props) {
         body: JSON.stringify({ pool }),
       });
       const data = await response.json();
+      console.log(data);
       switch (data.message) {
         case 'invalid pool name':
           setLabelTitle('Titulo prescisa de 5 caracteres ou mais');
           break;
-        case 'the email provided is not valid':
+        case 'the email provided is not valid!':
           navigate('/login');
           break;
         default:
