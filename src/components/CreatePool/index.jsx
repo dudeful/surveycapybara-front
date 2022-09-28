@@ -59,7 +59,6 @@ function CreatePool(props) {
     },
   ]);
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     status_titulo = '';
@@ -73,7 +72,6 @@ function CreatePool(props) {
 
     const complete = arr.reduce((previusValor, currentValor) => {
       if (currentValor.name.trim() !== '' && previusValor) {
-        
         return true;
       } else {
         setBool(true);
@@ -82,7 +80,6 @@ function CreatePool(props) {
     }, true);
 
     if (complete) {
-     
       //const pass = document.getElementById('poolpass');
       if (pool.name === '' || pool.name === undefined) {
         setStatus(true);
@@ -90,7 +87,6 @@ function CreatePool(props) {
         return;
       }
     } else {
-      
       return;
     }
 
@@ -101,15 +97,15 @@ function CreatePool(props) {
         body: JSON.stringify({ pool }),
       });
       const data = await response.json();
-      switch (data.message){
+      switch (data.message) {
         case 'invalid pool name':
           setLabelTitle('Titulo prescisa de 5 caracteres ou mais');
           break;
-          
+
         default:
       }
 
-      if (data.error){
+      if (data.error) {
         return;
       }
       navigate('/');
@@ -173,7 +169,7 @@ function CreatePool(props) {
     }
   };*/
 
-  isTokenFresh();
+  // isTokenFresh();
 
   return (
     <div className="create-pool">
@@ -215,7 +211,6 @@ function CreatePool(props) {
               Esconder votos:
             </label>
             <input type="checkbox" name="secury" onChange={checkboxHandler} />
-            
           </div>
           {arr.map((item, i) => {
             return (
@@ -228,9 +223,7 @@ function CreatePool(props) {
                 }}
                 removeHandler={removeHandler}
               />
-              
             );
-            
           })}
           {bool ? <label className="test">campo "opções" vazio, favor preencher</label> : ''}
 
