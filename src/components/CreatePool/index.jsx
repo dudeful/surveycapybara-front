@@ -101,8 +101,11 @@ function CreatePool(props) {
         case 'invalid pool name':
           setLabelTitle('Titulo prescisa de 5 caracteres ou mais');
           break;
-
+        case 'the email provided is not valid':
+          navigate('/login');
+          break;
         default:
+          break;
       }
 
       if (data.error) {
