@@ -21,9 +21,9 @@ const Header = (props) => {
     }
   };
 
-  const imageClickHandler = () =>{
-    navigate('/')
-  }
+  const imageClickHandler = () => {
+    navigate('/');
+  };
 
   return (
     <header>
@@ -31,7 +31,7 @@ const Header = (props) => {
 
       <div className="box-header-n">
         <button className="profile-or-login" onClick={loginHandler}>
-          <strong>{(profile !== 'anonymous') ? profile : 'Entrar'}</strong>
+          <strong>{profile !== 'anonymous' ? profile : 'Entrar'}</strong>
         </button>
         <button className="sign-up-or-in" onClick={registerAndSignHandler}>
           <strong>

@@ -11,6 +11,10 @@ import { API_URL } from '../Env';
 import './styles.css';
 
 function Pool(props) {
+  window.onbeforeunload = function () {
+    return 'Você está prestes a deslogar!';
+  };
+
   const { pool_id } = useParams();
   const socket = useContext(SocketContext);
   const [pool, setPool] = useState();
@@ -64,26 +68,6 @@ function Pool(props) {
       }
     };
 
-    //this function is to verify if the token is still valid, if it isn't then we redirect the user back to login screen
-    /* const isTokenFresh = async () => {
-      try {
-        const response = await fetch(`${API_URL}/users/refresh`, { credentials: 'include' });
-        const token = await response.json();
-
-        if (!token.isAuthenticated) {
-          navigate('/login');
-        } else {
-          // when refreshing cookies, must reset username and email
-          setUser({ username: token.decoded.username, email: token.decoded.email });
-          navigate(`/pool/${pool_id}`);
-        }
-      } catch (error) {
-        console.error('<<<ERROR WHILE REFRESHING TOKEN>>>');
-        console.error(error);
-      }
-    }; */
-
-    //isTokenFresh();
     fetchPool();
   }, [pool_id]);
 
